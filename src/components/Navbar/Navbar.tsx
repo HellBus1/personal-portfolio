@@ -5,7 +5,7 @@ const Navbar = () => {
   const { pathname } = useLocation()
 
   return (
-    <div className='navbar bg-base-100 fixed top-0 px-24'>
+    <div className='navbar bg-base-100 fixed top-0 left-0 right-0 px-24'>
       <div className='navbar-start'></div>
       <div className='navbar-center my-4'>
         <div role='tablist' className='tabs tabs-boxed'>
@@ -21,7 +21,9 @@ const Navbar = () => {
           ))}
         </div>
       </div>
-      <div className='navbar-end'></div>
+      <div className='navbar-end'>
+        <span className='text-sm'>v1.0.0</span>
+      </div>
     </div>
   )
 }
