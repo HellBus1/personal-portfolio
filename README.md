@@ -1,9 +1,9 @@
 # Personal Portfolio – My Personal Website & Labs
 
-
-## Description
-
 Welcome to my personal portfolio website! This platform showcases my professional journey, projects, and technical skills. It's designed to provide a comprehensive overview of my work and expertise in fullstack development.
+
+| <img width="1200" alt="Screenshot 2025-03-26 at 04 01 30" src="https://github.com/user-attachments/assets/0b9c288c-3a36-449d-932d-771974fc7d0d" /> |
+| --- |
 
 ### Key Features
 
