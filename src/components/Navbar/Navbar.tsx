@@ -1,28 +1,40 @@
 import { NavbarRouteName } from '@/constants/RouteName'
+import { IoIosHome, IoIosPerson } from 'react-icons/io'
 import { Link, useLocation } from 'react-router-dom'
+import packageJson from '../../../package.json'
+import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher'
+
+const NavbarRouteAsset: { [key: string]: JSX.Element } = {
+  '/': <IoIosHome size={20} />,
+  '/about': <IoIosPerson size={20} />
+}
 
 const Navbar = () => {
   const { pathname } = useLocation()
 
   return (
-    <div className='navbar bg-base-100 fixed top-0 left-0 right-0 px-24'>
-      <div className='navbar-start'></div>
-      <div className='navbar-center my-4'>
-        <div role='tablist' className='tabs tabs-boxed'>
-          {Object.entries(NavbarRouteName).map(([key, path]) => (
-            <Link
-              key={key}
-              to={path}
-              role='tab'
-              className={`tab ${pathname === path ? 'tab-active' : ''}`}
-            >
-              <p className='font-medium'>{key.charAt(0) + key.slice(1).toLowerCase()}</p>
-            </Link>
-          ))}
-        </div>
+    <div className='flex justify-between items-center fixed top-0 left-0 right-0 px-4 py-4 md:px-24 z-50'>
+      <div className='flex-1'>
+        <ThemeSwitcher />
       </div>
-      <div className='navbar-end'>
-        <span className='text-sm'>v1.0.0</span>
+      <div className='flex'>
+        <ul className='menu menu-horizontal bg-base-200 rounded-box space-x-2'>
+          {Object.entries(NavbarRouteName).map(([key, path]) => (
+            <li key={key}>
+              <Link
+                to={path}
+                role='tab'
+                className={`tab ${pathname === path ? 'tab-active' : ''} tooltip tooltip-bottom`}
+                data-tip={key.charAt(0) + key.slice(1).toLowerCase()}
+              >
+                {NavbarRouteAsset[path]}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className='flex-1 flex justify-end'>
+        <div className='badge badge-primary text-sm p-3'>v{packageJson.version}</div>
       </div>
     </div>
   )

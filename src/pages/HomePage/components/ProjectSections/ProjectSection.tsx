@@ -113,7 +113,7 @@ const ProjectSection = () => {
   const displayedProjects = showMore ? datas : datas.slice(0, 3)
 
   return (
-    <section className='flex flex-col items-center px-8 md:px-12 lg:px-20 mb-24'>
+    <section className='flex flex-col items-center px-8 md:px-12 lg:px-20 mt-20 mb-24'>
       <div className='w-full max-w-6xl'>
         <p className='text-neutral-content text-2xl md:text-3xl lg:text-4xl font-bold text-center'>
           Featured <span className='text-primary'>Projects</span>

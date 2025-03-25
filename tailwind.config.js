@@ -14,12 +14,57 @@ export default {
       {
         myDark: {
           "primary": "#496e97",
+          "primary-focus": "#3b5a7a",
+          "primary-content": "#ffffff",
+
+          "secondary": "#f6ad55",
+          "secondary-focus": "#dd8c3f",
+          "secondary-content": "#ffffff",
+
+          "accent": "#37cdbe",
+          "accent-focus": "#2aa79b",
+          "accent-content": "#ffffff",
 
           "neutral": "#111319",
+          "neutral-focus": "#0e0f14",
           "neutral-content": "#ffffff",
 
           "base-100": "#1a1c26",
-          "base-content": "#a9afc3"
+          "base-200": "#16181f",
+          "base-300": "#12141a",
+          "base-content": "#a9afc3",
+
+          "info": "#2094f3",
+          "success": "#009485",
+          "warning": "#ff9900",
+          "error": "#ff5724"
+        },
+        myLight: {
+          "primary": "#3b82f6",
+          "primary-focus": "#2563eb",
+          "primary-content": "#ffffff",
+
+          "secondary": "#fbbf24",
+          "secondary-focus": "#f59e0b",
+          "secondary-content": "#ffffff",
+
+          "accent": "#37cdbe",
+          "accent-focus": "#2aa79b",
+          "accent-content": "#ffffff",
+
+          "neutral": "#f3f4f6",
+          "neutral-focus": "#e5e7eb",
+          "neutral-content": "#1f2937",
+
+          "base-100": "#ffffff",
+          "base-200": "#f9fafb",
+          "base-300": "#f3f4f6",
+          "base-content": "#1f2937",
+
+          "info": "#2094f3",
+          "success": "#009485",
+          "warning": "#ff9900",
+          "error": "#ff5724"
         }
       }
     ]
