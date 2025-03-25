@@ -1,4 +1,5 @@
 import { SiLinkedin, SiMedium, SiGithub } from 'react-icons/si'
+import { Link } from 'react-router-dom'
 
 const OverviewSection = () => {
   return (
@@ -25,31 +26,25 @@ const OverviewSection = () => {
         </p>
       </div>
 
-      <div className='text-center mt-4'>
-        <p className='text-xs sm:text-sm md:text-base'>
-          I am a developer focused on fullstack technology based in Indonesia.
-        </p>
-        <p className='text-xs sm:text-sm md:text-base'>
-          Experienced with Kotlin, Flutter, Java, and the React ecosystem.
+      <div className='text-center mt-4 px-8 md:px-12 lg:px-20'>
+        <p className='text-sm sm:text-base md:text-lg'>
+          I am a developer focused on fullstack technology based in Indonesia. <br /> Experienced
+          with Kotlin, Flutter, Java, and the React ecosystem.
         </p>
       </div>
 
-      <div className='flex flex-row mt-4 justify-center items-center space-x-4'>
-        <a href={'https://github.com/HellBus1/'}>
-          <SiGithub size={24} />
-        </a>
-
-        <div className='border-l h-6'></div>
-
-        <a href={'https://www.linkedin.com/in/syubban/'}>
-          <SiLinkedin size={24} />
-        </a>
-
-        <div className='border-l h-6'></div>
-
-        <a href={'https://medium.com/@syubbanfakhriya/'}>
-          <SiMedium size={24} />
-        </a>
+      <div className='flex flex-row mt-6 justify-center items-center space-x-6'>
+        <Link to={'https://github.com/HellBus1/'}>
+          <SiGithub size={20} />
+        </Link>
+        <div className='border-l h-3'></div>
+        <Link to={'https://www.linkedin.com/in/syubban/'}>
+          <SiLinkedin size={20} />
+        </Link>
+        <div className='border-l h-3'></div>
+        <Link to={'https://medium.com/@syubbanfakhriya/'}>
+          <SiMedium size={20} />
+        </Link>
       </div>
 
       <button className='btn btn-md btn-outline text-neutral-content rounded-full mt-8 text-xs md:text-base'>
