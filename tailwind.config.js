@@ -29,9 +29,9 @@ export default {
           "neutral-focus": "#0e0f14",
           "neutral-content": "#ffffff",
 
-          "base-100": "#1a1c26",
-          "base-200": "#16181f",
-          "base-300": "#12141a",
+          "base-100": "#1a1c26", // Darker for better shadow visibility
+          "base-200": "#16181f", // Darker for better shadow visibility
+          "base-300": "#12141a", // Darker for better shadow visibility
           "base-content": "#a9afc3",
 
           "info": "#2094f3",
@@ -52,13 +52,13 @@ export default {
           "accent-focus": "#2aa79b",
           "accent-content": "#ffffff",
 
-          "neutral": "#f3f4f6",
-          "neutral-focus": "#e5e7eb",
+          "neutral": "#e5e7eb", // Darker for better shadow visibility
+          "neutral-focus": "#d1d5db", // Darker for better shadow visibility
           "neutral-content": "#1f2937",
 
-          "base-100": "#ffffff",
-          "base-200": "#f9fafb",
-          "base-300": "#f3f4f6",
+          "base-100": "#ffffff", // Darker for better shadow visibility
+          "base-200": "#f9fafb", // Darker for better shadow visibility
+          "base-300": "#f3f4f6", // Darker for better shadow visibility
           "base-content": "#1f2937",
 
           "info": "#2094f3",
