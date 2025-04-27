@@ -19,20 +19,20 @@ import { Link } from 'react-router-dom'
 import { projectsData } from './projectData'
 
 const iconMapper: Record<string, JSX.Element> = {
-  flutter: <SiFlutter size={20} />,
-  laravel: <SiLaravel size={20} />,
-  kotlin: <SiKotlin size={20} />,
-  'android studio': <SiAndroidstudio size={20} />,
-  bootstrap: <SiBootstrap size={20} />,
-  php: <SiPhp size={20} />,
-  dart: <SiDart size={20} />,
-  spring: <SiSpring size={20} />,
-  springboot: <SiSpringboot size={20} />,
-  typescript: <SiTypescript size={20} />,
-  tailwindcss: <SiTailwindcss size={20} />,
-  daisyui: <SiDaisyui size={20} />,
-  react: <SiReact size={20} />,
-  java: <FaJava size={20} />
+  flutter: <SiFlutter size={24} />,
+  laravel: <SiLaravel size={24} />,
+  kotlin: <SiKotlin size={24} />,
+  'android studio': <SiAndroidstudio size={24} />,
+  bootstrap: <SiBootstrap size={24} />,
+  php: <SiPhp size={24} />,
+  dart: <SiDart size={24} />,
+  spring: <SiSpring size={24} />,
+  springboot: <SiSpringboot size={24} />,
+  typescript: <SiTypescript size={24} />,
+  tailwindcss: <SiTailwindcss size={24} />,
+  daisyui: <SiDaisyui size={24} />,
+  react: <SiReact size={24} />,
+  java: <FaJava size={24} />
 }
 
 const ProjectSection = () => {
@@ -42,19 +42,19 @@ const ProjectSection = () => {
 
   return (
     <section
-      className='flex flex-col items-center px-8 md:px-12 lg:px-20 mt-8 mb-32'
+      className='flex flex-col items-center px-8 md:px-12 lg:px-20 mt-16 mb-32'
       id='projects-section'
     >
       <div className='w-full max-w-6xl'>
-        <p className='text-neutral-content text-2xl md:text-3xl lg:text-4xl font-bold text-center'>
+        <h2 className='text-3xl md:text-4xl font-bold text-neutral-content text-center'>
           Featured <span className='text-primary'>Projects</span>
-        </p>
-        <p className='text-sm sm:text-base md:text-lg mt-3 text-center'>
+        </h2>
+        <p className='text-base md:text-lg mt-4 text-center text-neutral-content/80'>
           Some of the most innovative projects I've worked on.
         </p>
       </div>
 
-      <div className='w-full max-w-6xl mt-10'>
+      <div className='w-full max-w-6xl mt-12'>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
           {displayedProjects.map((item, index) => {
             return (
@@ -63,7 +63,7 @@ const ProjectSection = () => {
                 key={`${item.id}-${index}`}
                 target='_blank'
                 rel='noopener noreferrer'
-                className='card card-compact w-full h-80 rounded-lg shadow-lg'
+                className='card card-compact w-full h-80 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300'
               >
                 <figure className='h-48'>
                   <img
@@ -72,18 +72,18 @@ const ProjectSection = () => {
                     className='rounded-t-lg w-full h-full border object-cover'
                   />
                 </figure>
-                <div className='px-4 py-2'>
-                  <div className='text-base flex flex-row mt-4 mb-2 space-x-2 items-center'>
+                <div className='px-5 py-4'>
+                  <div className='flex flex-row mt-2 mb-3 space-x-3 items-center'>
                     {item.stacks.map((stack, index) => {
                       return <div key={index}>{iconMapper[stack]}</div>
                     })}
                   </div>
-                  <div className='text-sm sm:text-base md:text-lg line-clamp-2 text-neutral-content font-bold overflow-hidden text-ellipsis mt-4'>
+                  <h3 className='text-lg md:text-xl font-bold text-neutral-content line-clamp-2'>
                     {item.name}
-                  </div>
-                  <div className='text-sm sm:text-base md:text-lg line-clamp-2 overflow-hidden text-ellipsis mt-2'>
+                  </h3>
+                  <p className='text-base md:text-lg line-clamp-2 text-neutral-content/80 mt-2'>
                     {item.shortDescription}
-                  </div>
+                  </p>
                 </div>
               </Link>
             )
@@ -92,9 +92,9 @@ const ProjectSection = () => {
       </div>
 
       {projectsData.length > 3 && (
-        <div className='mt-8'>
+        <div className='mt-12'>
           <button
-            className='btn btn-outline text-neutral-content w-52 capitalize'
+            className='btn btn-outline text-neutral-content px-8 py-3 text-base md:text-lg capitalize'
             onClick={() => setShowMore(!showMore)}
           >
             {showMore ? 'Show less' : 'See more projects'}

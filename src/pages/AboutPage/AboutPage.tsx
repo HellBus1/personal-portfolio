@@ -1,9 +1,18 @@
+import OverviewSection from './OverviewSection/OverviewSection'
+import DrivesMeSection from './DrivesMeSection/DrivesMeSection'
+import CurrentFocusSection from './CurrentFocus/CurrentFocusSection'
+import ContactSection from './ContactSection/ContactSection'
+
 const AboutPage = () => {
   return (
-    <div className='flex flex-col items-center justify-center min-h-screen bg-base-100 text-base-content'>
-      <h1 className='text-4xl font-bold mb-4'>Coming Soon</h1>
-      <p className='text-xl'>Work in Progress</p>
-    </div>
+    <>
+      <div className='container max-w-5xl mx-auto px-8 md:px-12 lg:px-20 pb-16 pt-32'>
+        <OverviewSection />
+        <DrivesMeSection />
+        <CurrentFocusSection />
+        <ContactSection />
+      </div>
+    </>
   )
 }
 
