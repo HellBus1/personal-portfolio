@@ -1,5 +1,5 @@
 import OverviewSection from './components/OverviewSection/OverviewSection'
-import ProjectSection from './components/ProjectSections/ProjectSection'
+import ProjectSection from './components/ProjectSection/ProjectSection'
 
 const HomePage = () => {
   return (
