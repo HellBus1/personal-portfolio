@@ -43,7 +43,7 @@ export const projectsData: Project[] = [
       'InvestCount is a simple investment calculator that helps you calculate interest to make smarter financial decisions.',
     banner:
       'https://firebasestorage.googleapis.com/v0/b/personalwebsite-af6e7.appspot.com/o/projects%2Finvestcount_banner.png?alt=media&token=398f9d38-3891-4dfe-862f-807a5a3fdef8',
-    path: 'https://investcount.syubbanfakhriya.com/',
+    path: 'https://investcount.mattrmost.com/',
     createdAt: { seconds: 1680714000, nanoseconds: 384000000 },
     stacks: ['typescript', 'tailwindcss', 'daisyui', 'react']
   },

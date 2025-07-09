@@ -26,14 +26,14 @@ const OverviewSection = () => {
           Hi, I'm Syubban Fakhriya
         </p>
         <h1 className='text-3xl md:text-4xl font-bold text-center text-neutral-content'>
-          IT Enthusiast & Content Writer
+          Full-Stack Developer | Content Writer
         </h1>
       </div>
 
       <div className='text-center mt-6 max-w-2xl'>
         <p className='text-base md:text-lg text-neutral-content/80'>
-          I'm a passionate developer from Indonesia, specializing in fullstack development. <br /> I
-          have experience with Kotlin, Flutter, Java, and the React ecosystem.
+          I'm a passionate developer, specializing in fullstack development. <br /> I have
+          experience with Kotlin, Java, and the React ecosystem.
         </p>
       </div>
 
@@ -46,7 +46,7 @@ const OverviewSection = () => {
           <SiLinkedin size={20} className='text-neutral-content' />
         </Link>
         <div className='border-l h-4'></div>
-        <Link to={'https://medium.com/@syubbanfakhriya/'} target='_blank' rel='noopener noreferrer'>
+        <Link to={'https://medium.com/@fakrii/'} target='_blank' rel='noopener noreferrer'>
           <SiMedium size={20} className='text-neutral-content' />
         </Link>
       </div>
