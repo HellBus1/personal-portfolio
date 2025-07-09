@@ -7,9 +7,10 @@ const OverviewSection = () => {
         </h1>
         <div className='prose prose-base md:prose-lg dark:prose-invert'>
           <p>
-            A builder of ideas, a seeker of meaning, and a lifelong learner who crafts digital
-            solutions that make life simpler.
+            I create scalable solutions, such as company profiles and custom ERP systems, that
+            automate processes, produce leads, and increase business growth.
           </p>
+          <br />
           <p>
             I believe in building tools that serve real human needs, combining technical expertise
             with empathy to create meaningful experiences.

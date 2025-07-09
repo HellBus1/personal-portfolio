@@ -94,7 +94,7 @@ const ProjectSection = () => {
       {projectsData.length > 3 && (
         <div className='mt-12'>
           <button
-            className='btn btn-outline text-neutral-content px-8 py-3 text-base md:text-lg capitalize'
+            className='btn btn-outline text-neutral-content px-8 text-base md:text-lg capitalize'
             onClick={() => setShowMore(!showMore)}
           >
             {showMore ? 'Show less' : 'See more projects'}
