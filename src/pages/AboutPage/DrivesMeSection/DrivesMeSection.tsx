@@ -4,9 +4,9 @@ const DrivesMeSection = () => {
   const principles = [
     {
       icon: <FaLightbulb size={20} />,
-      title: 'Innovation Through Simplicity',
+      title: 'Business-First Innovation',
       description:
-        'Creating elegant solutions that make life easier and better for others. Every problem is an opportunity to innovate with purpose.'
+        'Transforming complex challenges into intuitive tools that boost revenue, reduce costs, and simplify processes for SMEs and enterprises.'
     },
     {
       icon: <FaHeart size={20} />,
