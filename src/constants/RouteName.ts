@@ -1,6 +1,7 @@
 const NavbarRouteName = {
   HOME: '/',
-  ABOUT: '/about'
+  ABOUT: '/about',
+  PROJECTS: '/projects'
 }
 
 const RouteName = {
