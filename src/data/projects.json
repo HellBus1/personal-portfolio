@@ -29,7 +29,7 @@
     "path": "https://investcount.mattrmost.com/",
     "createdAt": { "seconds": 1680714000, "nanoseconds": 384000000 },
     "stacks": ["typescript", "tailwindcss", "daisyui", "react"],
-    "year": "2023",
+    "year": "2024",
     "featured": true
   },
   {
@@ -40,7 +40,7 @@
     "path": "https://github.com/HellBus1/spring-playground",
     "createdAt": { "seconds": 1680714000, "nanoseconds": 384000000 },
     "stacks": ["spring", "springboot", "java"],
-    "year": "2023",
+    "year": "2024",
     "featured": false
   },
   {
@@ -51,7 +51,7 @@
     "path": "https://github.com/HellBus1/ts-react-tailwind-starter",
     "createdAt": { "seconds": 1680714000, "nanoseconds": 384000000 },
     "stacks": ["typescript", "tailwindcss", "daisyui", "react"],
-    "year": "2023",
+    "year": "2024",
     "featured": false
   }
 ]
