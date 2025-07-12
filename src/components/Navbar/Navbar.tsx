@@ -1,14 +1,19 @@
 import { useEffect, useRef, useState } from 'react'
-import { NavbarRouteName } from '@/constants/RouteName'
-import { IoIosHome, IoIosPerson } from 'react-icons/io'
+import { NavbarRouteName, RouteName } from '@/constants/RouteName'
+import { IoIosApps, IoIosHome, IoIosPerson } from 'react-icons/io'
 import { Link, useLocation } from 'react-router-dom'
 import packageJson from '../../../package.json'
 import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher'
+import { IoDocument } from 'react-icons/io5'
 
 const NavbarRouteAsset: { [key: string]: JSX.Element } = {
-  '/': <IoIosHome size={20} />,
-  '/about': <IoIosPerson size={20} />
+  [RouteName.HOME]: <IoIosHome size={20} />,
+  [RouteName.PROJECTS]: <IoIosApps size={20} />,
+  [RouteName.ARTICLES]: <IoDocument size={20} />, // Assuming articles are also under projects
+  [RouteName.ABOUT]: <IoIosPerson size={20} />
 }
+
+const NAVBAR_ORDER = [RouteName.HOME, RouteName.PROJECTS, RouteName.ARTICLES, RouteName.ABOUT]
 
 const Navbar = () => {
   const { pathname } = useLocation()
@@ -50,18 +55,24 @@ const Navbar = () => {
         </div>
         <div className='flex'>
           <ul className='menu menu-horizontal bg-base-200 rounded-box space-x-2'>
-            {Object.entries(NavbarRouteName).map(([key, path]) => (
-              <li key={key}>
-                <Link
-                  to={path}
-                  role='tab'
-                  className={`tab ${pathname === path ? 'tab-active' : ''} tooltip tooltip-bottom`}
-                  data-tip={key.charAt(0) + key.slice(1).toLowerCase()}
-                >
-                  {NavbarRouteAsset[path]}
-                </Link>
-              </li>
-            ))}
+            {NAVBAR_ORDER.map((path) => {
+              const key = (
+                Object.keys(NavbarRouteName) as Array<keyof typeof NavbarRouteName>
+              ).find((k) => NavbarRouteName[k] === path)
+              if (!key) return null
+              return (
+                <li key={key}>
+                  <Link
+                    to={path}
+                    role='tab'
+                    className={`tab ${pathname === path ? 'tab-active' : ''} tooltip tooltip-bottom`}
+                    data-tip={key.charAt(0) + key.slice(1).toLowerCase()}
+                  >
+                    {NavbarRouteAsset[path]}
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
         </div>
         <div className='flex-1 flex justify-end'>
