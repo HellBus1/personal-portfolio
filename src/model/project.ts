@@ -1,7 +1,4 @@
-export interface CreatedAt {
-  seconds: number
-  nanoseconds: number
-}
+import { CreatedAt } from './createdAt'
 
 export interface Project {
   id: string
