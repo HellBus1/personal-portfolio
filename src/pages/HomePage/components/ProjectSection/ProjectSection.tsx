@@ -20,20 +20,20 @@ import { Project } from '@/model/project'
 import { RouteName } from '@/constants/RouteName'
 
 const iconMapper: Record<string, JSX.Element> = {
-  flutter: <SiFlutter size={24} />,
-  laravel: <SiLaravel size={24} />,
-  kotlin: <SiKotlin size={24} />,
-  'android studio': <SiAndroidstudio size={24} />,
-  bootstrap: <SiBootstrap size={24} />,
-  php: <SiPhp size={24} />,
-  dart: <SiDart size={24} />,
-  spring: <SiSpring size={24} />,
-  springboot: <SiSpringboot size={24} />,
-  typescript: <SiTypescript size={24} />,
-  tailwindcss: <SiTailwindcss size={24} />,
-  daisyui: <SiDaisyui size={24} />,
-  react: <SiReact size={24} />,
-  java: <FaJava size={24} />
+  flutter: <SiFlutter size={20} />,
+  laravel: <SiLaravel size={20} />,
+  kotlin: <SiKotlin size={20} />,
+  'android studio': <SiAndroidstudio size={20} />,
+  bootstrap: <SiBootstrap size={20} />,
+  php: <SiPhp size={20} />,
+  dart: <SiDart size={20} />,
+  spring: <SiSpring size={20} />,
+  springboot: <SiSpringboot size={20} />,
+  typescript: <SiTypescript size={20} />,
+  tailwindcss: <SiTailwindcss size={20} />,
+  daisyui: <SiDaisyui size={20} />,
+  react: <SiReact size={20} />,
+  java: <FaJava size={20} />
 }
 
 const ProjectSection = () => {
@@ -79,10 +79,10 @@ const ProjectSection = () => {
                         return <div key={index}>{iconMapper[stack]}</div>
                       })}
                     </div>
-                    <h3 className='text-lg md:text-xl font-bold text-neutral-content line-clamp-2'>
+                    <h3 className='text-lg font-semibold text-neutral-content line-clamp-2'>
                       {item.name}
                     </h3>
-                    <p className='text-base md:text-lg line-clamp-2 text-neutral-content/80 mt-2'>
+                    <p className='text-base line-clamp-2 text-neutral-content/80 mt-2'>
                       {item.shortDescription}
                     </p>
                   </div>

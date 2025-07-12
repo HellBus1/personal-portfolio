@@ -1,51 +1,54 @@
 import { Project } from '@/model/project'
+import { IoCheckmarkCircle, IoShareOutline } from 'react-icons/io5'
 import { useNavigate } from 'react-router-dom'
 
 interface ProjectItemProps {
   project: Project
 }
 
-const ProjectItem = (props: ProjectItemProps) => {
-  const { project } = props
+const ProjectItem = ({ project }: ProjectItemProps) => {
   const navigate = useNavigate()
 
   return (
-    <div
-      key={project.id}
-      className='bg-base-200 rounded-lg shadow p-0 hover:shadow-lg transition flex flex-col group min-h-[340px]'
-    >
-      <img
-        src={project.banner}
-        alt={project.name}
-        className='rounded-t-lg h-48 object-cover w-full group-hover:scale-[1.03] transition'
-        loading='lazy'
-      />
-      <div className='p-5 flex flex-col gap-2 flex-1'>
+    <div className='card card-compact bg-base-200 shadow hover:shadow-lg transition min-h-[340px]'>
+      <figure className='h-48'>
+        <img
+          src={project.banner}
+          alt={project.name}
+          className='rounded-t-lg w-full h-full object-cover group-hover:scale-[1.03] transition'
+          loading='lazy'
+        />
+      </figure>
+      <div className='card-body flex flex-col gap-2 flex-1'>
         <div className='flex items-center gap-2 mb-1'>
-          <span className='font-semibold text-lg'>{project.name}</span>
+          <span className='text-lg font-semibold text-neutral-content line-clamp-2'>
+            {project.name}
+          </span>
+          {project.year && <span className='badge badge-primary text-xs'>{project.year}</span>}
         </div>
-        <p className='text-neutral-content/80 text-sm line-clamp-3'>{project.shortDescription}</p>
+        <p className='text-base line-clamp-2 text-neutral-content/80'>{project.shortDescription}</p>
         <div className='flex flex-wrap gap-2 mt-2'>
           {project.stacks.map((tech) => (
             <span key={tech} className='badge badge-outline text-xs px-2 py-1'>
               {tech}
             </span>
           ))}
-          <span className='badge badge-ghost text-xs px-2 py-1'>{project.year}</span>
         </div>
-        <div className='flex gap-2 mt-4'>
+        <div className='card-actions mt-4 flex gap-2'>
           <button
-            className='btn btn-sm btn-primary'
+            className='btn btn-sm btn-primary px-8'
             onClick={() => navigate(`/projects/${project.id}`)}
           >
+            <IoCheckmarkCircle />
             Detail
           </button>
           <a
             href={project.path}
             target='_blank'
             rel='noopener noreferrer'
-            className='btn btn-sm btn-outline'
+            className='btn btn-sm btn-outline px-8'
           >
+            <IoShareOutline />
             Visit
           </a>
         </div>

@@ -8,7 +8,8 @@
     "createdAt": { "seconds": 1680714000, "nanoseconds": 384000000 },
     "stacks": ["kotlin", "android studio"],
     "year": "2023",
-    "featured": true
+    "featured": true,
+    "platform": "android"
   },
   {
     "id": "2",
@@ -19,7 +20,8 @@
     "createdAt": { "seconds": 1680714000, "nanoseconds": 384000000 },
     "stacks": ["flutter", "dart", "android studio"],
     "year": "2023",
-    "featured": true
+    "featured": true,
+    "platform": "android"
   },
   {
     "id": "3",
@@ -30,7 +32,8 @@
     "createdAt": { "seconds": 1680714000, "nanoseconds": 384000000 },
     "stacks": ["typescript", "tailwindcss", "daisyui", "react"],
     "year": "2024",
-    "featured": true
+    "featured": true,
+    "platform": "web"
   },
   {
     "id": "4",
@@ -41,7 +44,8 @@
     "createdAt": { "seconds": 1680714000, "nanoseconds": 384000000 },
     "stacks": ["spring", "springboot", "java"],
     "year": "2024",
-    "featured": false
+    "featured": false,
+    "platform": "web"
   },
   {
     "id": "5",
@@ -52,6 +56,7 @@
     "createdAt": { "seconds": 1680714000, "nanoseconds": 384000000 },
     "stacks": ["typescript", "tailwindcss", "daisyui", "react"],
     "year": "2024",
-    "featured": false
+    "featured": false,
+    "platform": "web"
   }
 ]

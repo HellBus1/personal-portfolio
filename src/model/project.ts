@@ -13,4 +13,5 @@ export interface Project {
   stacks: string[]
   featured?: boolean
   year?: string
+  platform?: string
 }

@@ -12,13 +12,19 @@ const getAllStacks = (projects: Project[]) =>
   Array.from(new Set(projects.flatMap((p) => p.stacks.map((s) => s.toLowerCase()))))
 
 const getAllYears = (projects: Project[]) =>
-  Array.from(new Set(projects.map((p) => getYear(p.createdAt))))
-
-const getAllPlatforms = (projects: Project[]) => {
-  return ['android', 'web', 'ios'].filter((platform) =>
-    projects.some((p) => p.stacks.join(' ').toLowerCase().includes(platform))
+  Array.from(
+    new Set(
+      projects
+        .map((p) =>
+          // Prefer explicit year field if present, else fallback to createdAt
+          p.year ? p.year : p.createdAt ? getYear(p.createdAt) : undefined
+        )
+        .filter(Boolean)
+    )
   )
-}
+
+const getAllPlatforms = (projects: Project[]) =>
+  Array.from(new Set(projects.map((p) => p.platform).filter(Boolean)))
 
 const ProjectsPage = () => {
   const [search, setSearch] = useState('')
@@ -40,11 +46,16 @@ const ProjectsPage = () => {
 
       const matchesStack = stack ? project.stacks.map((s) => s.toLowerCase()).includes(stack) : true
 
-      const matchesPlatform = platform
-        ? project.stacks.map((s) => s.toLowerCase()).includes(platform)
-        : true
+      const matchesPlatform = platform ? project.platform === platform : true
 
-      const matchesYear = year ? getYear(project.createdAt) === year : true
+      // Prefer explicit year field if present, else fallback to createdAt
+      const projectYear = project.year
+        ? project.year
+        : project.createdAt
+          ? getYear(project.createdAt)
+          : ''
+
+      const matchesYear = year ? projectYear === year : true
 
       return matchesSearch && matchesStack && matchesPlatform && matchesYear
     })
@@ -113,7 +124,7 @@ const ProjectsPage = () => {
               </div>
             )}
             {filteredProjects.map((project) => (
-              <ProjectItem project={project} />
+              <ProjectItem key={project.id} project={project} />
             ))}
           </div>
         </div>
