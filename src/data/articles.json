@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "title": "Transactional: What Happens When the Process Fails?",
+    "shortDescription": "Understand how the system automatically undoes the process when database operations fail",
+    "banner": "https://firebasestorage.googleapis.com/v0/b/personalwebsite-af6e7.appspot.com/o/projects%2Ftransactional_what_happen.jpg?alt=media&token=691c274b-bf83-4a87-bbf3-757f51756ba1",
+    "path": "https://fakrii.medium.com/transactional-what-happens-when-the-process-fails-161ac32e900c",
+    "createdAt": { "seconds": 1704067200, "nanoseconds": 0 },
+    "tags": ["spring boot", "java", "jpa", "database", "transactions"],
+    "category": "Software Engineering",
+    "readTime": "10 min read",
+    "year": "2025",
+    "featured": true,
+    "author": "Syubban Fakhriya",
+    "publishedDate": 1752309013000
+  },
+  {
+    "id": "2",
+    "title": "Choosing a Garbage Collector in Spring Boot Effectively for Maximum Performance to Prevent Downtime",
+    "shortDescription": "Exploring how the garbage collector works and how it might impact your services",
+    "banner": "https://firebasestorage.googleapis.com/v0/b/personalwebsite-af6e7.appspot.com/o/projects%2Fchoosing_garbage_collection.jpg?alt=media&token=897714ad-aaf0-4a8b-9845-0d915feb6a80",
+    "path": "https://fakrii.medium.com/choosing-a-garbage-collector-in-spring-boot-effectively-for-maximum-performance-to-prevent-downtime-3836a49a4e08",
+    "createdAt": { "seconds": 1706745600, "nanoseconds": 0 },
+    "tags": ["spring boot", "java", "monitoring", "garbage collector", "microservices"],
+    "category": "Software Engineering",
+    "readTime": "13 min read",
+    "year": "2025",
+    "featured": true,
+    "author": "Syubban Fakhriya",
+    "publishedDate": 1752309013000
+  },
+  {
+    "id": "3",
+    "title": "Boost Your Productivity with ChatGPT — The Ultimate Tool for Efficiency",
+    "shortDescription": "",
+    "banner": "https://firebasestorage.googleapis.com/v0/b/personalwebsite-af6e7.appspot.com/o/projects%2Fboost_your_productivity.jpg?alt=media&token=6fb6366c-8a82-4884-910c-90ec8848ace8",
+    "path": "https://fakrii.medium.com/boost-your-productivity-with-chatgpt-the-ultimate-tool-for-efficiency-8a49bcf59b18",
+    "createdAt": { "seconds": 1709251200, "nanoseconds": 0 },
+    "tags": ["chatgpt", "ai", "chatbots", "prompt", "productivity"],
+    "category": "LLM For Productivity",
+    "readTime": "8 min read",
+    "year": "2023",
+    "featured": true,
+    "author": "Syubban Fakhriya",
+    "publishedDate": 1752309013000
+  },
+  {
+    "id": "4",
+    "title": "React Native vs Flutter: Which Framework Reigns Supreme in Multiplatform Mobile Development? — A Comparative Analysis.",
+    "shortDescription": "",
+    "banner": "https://firebasestorage.googleapis.com/v0/b/personalwebsite-af6e7.appspot.com/o/projects%2Freact_vs_flutter.jpg?alt=media&token=79a4331a-9946-4b7d-9eb5-936d591c710b",
+    "path": "https://fakrii.medium.com/react-native-vs-flutter-which-framework-reigns-supreme-in-multiplatform-mobile-development-8de6ec12cf60",
+    "createdAt": { "seconds": 1711929600, "nanoseconds": 0 },
+    "tags": ["flutter", "react native", "programming", "mobile app development", "javascript"],
+    "category": "Android & IOS Engineering",
+    "readTime": "8 min read",
+    "year": "2023",
+    "featured": false,
+    "author": "Syubban Fakhriya",
+    "publishedDate": 1752309013000
+  }
+]

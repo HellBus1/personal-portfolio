@@ -4,14 +4,16 @@ import { IoIosApps, IoIosHome, IoIosPerson } from 'react-icons/io'
 import { Link, useLocation } from 'react-router-dom'
 import packageJson from '../../../package.json'
 import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher'
+import { IoDocument } from 'react-icons/io5'
 
 const NavbarRouteAsset: { [key: string]: JSX.Element } = {
-  '/': <IoIosHome size={20} />,
-  '/projects': <IoIosApps size={20} />,
-  '/about': <IoIosPerson size={20} />
+  [RouteName.HOME]: <IoIosHome size={20} />,
+  [RouteName.PROJECTS]: <IoIosApps size={20} />,
+  [RouteName.ARTICLES]: <IoDocument size={20} />, // Assuming articles are also under projects
+  [RouteName.ABOUT]: <IoIosPerson size={20} />
 }
 
-const NAVBAR_ORDER = [RouteName.HOME, RouteName.PROJECTS, RouteName.ABOUT]
+const NAVBAR_ORDER = [RouteName.HOME, RouteName.PROJECTS, RouteName.ARTICLES, RouteName.ABOUT]
 
 const Navbar = () => {
   const { pathname } = useLocation()
