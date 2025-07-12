@@ -51,12 +51,12 @@ const OverviewSection = () => {
         </Link>
       </div>
 
-      <div className='flex flex-row mt-8 md:mt-10 space-x-4 md:space-x-5'>
-        <button className='btn btn-md btn-outline text-neutral-content rounded-md text-sm md:text-base'>
+      <div className='flex flex-col sm:flex-row mt-8 md:mt-10 gap-4 md:gap-5 w-full max-w-xs sm:max-w-none justify-center items-center'>
+        <button className='btn btn-md btn-outline text-neutral-content rounded-md text-sm md:text-base w-full sm:w-auto'>
           Download Resume
         </button>
         <button
-          className='btn btn-md btn-outline text-neutral-content rounded-md text-sm md:text-base'
+          className='btn btn-md btn-outline text-neutral-content rounded-md text-sm md:text-base w-full sm:w-auto'
           onClick={scrollToProjects}
         >
           <FaInfoCircle className='mr-2' size={16} />
