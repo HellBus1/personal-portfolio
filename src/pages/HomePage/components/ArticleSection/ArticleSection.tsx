@@ -63,15 +63,6 @@ const ArticleSection = () => {
         </div>
       </div> */}
 
-      {/* <div className="mt-12">
-        <button
-          className="btn btn-outline text-neutral-content px-8 text-base md:text-lg capitalize"
-          onClick={() => navigate('/articles')}
-        >
-          {'See more articles'}
-        </button>
-      </div> */}
-
       <div className='w-full max-w-6xl mt-12'>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
           {displayedArticles.map((item, index) => {
@@ -103,6 +94,16 @@ const ArticleSection = () => {
                     <p className='text-base line-clamp-2 text-neutral-content/80 mt-2'>
                       {item.shortDescription}
                     </p>
+                    <div className='flex flex-wrap gap-2 mt-2'>
+                      {item.tags?.slice(0, 3).map((tag) => (
+                        <span key={tag} className='badge badge-outline text-xs px-2 py-1'>
+                          {tag}
+                        </span>
+                      ))}
+                      {item.readTime && (
+                        <span className='badge badge-ghost text-xs px-2 py-1'>{item.readTime}</span>
+                      )}
+                    </div>
                   </div>
                 </Link>
               )
@@ -116,7 +117,7 @@ const ArticleSection = () => {
           className='btn btn-outline text-neutral-content px-8 text-base md:text-lg capitalize'
           onClick={() => navigate(RouteName.ARTICLES)}
         >
-          {'See more projects'}
+          {'See more articles'}
         </button>
       </div>
     </section>
