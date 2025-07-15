@@ -8,6 +8,7 @@ const HomePage = () => {
     <RootLayout>
       <OverviewSection />
       <ProjectSection />
+      <div className='my-32' />
       <ArticleSection />
     </RootLayout>
   )
