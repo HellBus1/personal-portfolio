@@ -1,11 +1,24 @@
+import { useEffect, useState } from 'react'
 import { RouteName } from '@/constants/RouteName'
 import articlesDataRaw from '../../../../data/articles.json'
 import { Article } from '@/model/article'
 import { Link, useNavigate } from 'react-router-dom'
 
+const getArticleCount = () => (window.innerWidth < 640 ? 2 : 3)
+
 const ArticleSection = () => {
   const navigate = useNavigate()
-  const displayedArticles = (articlesDataRaw as Article[]).filter((a) => a.featured).slice(0, 3)
+  const [articleCount, setArticleCount] = useState(getArticleCount())
+
+  useEffect(() => {
+    const handleResize = () => setArticleCount(getArticleCount())
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  const displayedArticles = (articlesDataRaw as Article[])
+    .filter((a) => a.featured)
+    .slice(0, articleCount)
 
   return (
     <section

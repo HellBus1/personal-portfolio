@@ -18,6 +18,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import projectsDataRaw from '../../../../data/projects.json'
 import { Project } from '@/model/project'
 import { RouteName } from '@/constants/RouteName'
+import { useEffect, useState } from 'react'
 
 const iconMapper: Record<string, JSX.Element> = {
   flutter: <SiFlutter size={20} />,
@@ -36,9 +37,21 @@ const iconMapper: Record<string, JSX.Element> = {
   java: <FaJava size={20} />
 }
 
+const getProjectCount = () => (window.innerWidth < 640 ? 2 : 3)
+
 const ProjectSection = () => {
   const navigate = useNavigate()
-  const displayedProjects = projectsDataRaw as Project[]
+  const [projectCount, setProjectCount] = useState(getProjectCount())
+
+  useEffect(() => {
+    const handleResize = () => setProjectCount(getProjectCount())
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  const displayedProjects = (projectsDataRaw as Project[])
+    .filter((a) => a.featured)
+    .slice(0, projectCount)
 
   return (
     <section
@@ -65,6 +78,7 @@ const ProjectSection = () => {
                   target='_blank'
                   rel='noopener noreferrer'
                   className='card card-compact w-full h-80 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300'
+                  style={{ minHeight: 320, height: '100%' }}
                 >
                   <figure className='h-48'>
                     <img
