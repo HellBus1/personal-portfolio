@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react'
+import { useLocation, Link } from 'react-router-dom'
 import projectsDataRaw from '../../data/projects.json'
 import { Project } from '../../model/project'
 import RootLayout from '@/components/RootLayout/RootLayout'
@@ -61,9 +62,41 @@ const ProjectsPage = () => {
     })
   }, [search, stack, platform, year, projects])
 
+  const location = useLocation()
+  const pathnames = location.pathname.split('/').filter((x) => x)
+
   return (
     <RootLayout>
-      <div className='w-full max-w-5xl mx-auto px-8 md:px-12 lg:px-20 pb-16 pt-32 min-h-[70vh] flex flex-col'>
+      <div className='w-full max-w-5xl mx-auto px-8 md:px-12 lg:px-20 pb-16 pt-24 min-h-[70vh] flex flex-col'>
+        <div className='text-sm mb-12'>
+          <div className='breadcrumbs'>
+            <ul>
+              <li>
+                <Link to='/' className='link link-hover'>
+                  Home
+                </Link>
+              </li>
+              {pathnames.map((value, idx) => {
+                const to = '/' + pathnames.slice(0, idx + 1).join('/')
+                const isLast = idx === pathnames.length - 1
+                return (
+                  <li key={to}>
+                    {isLast ? (
+                      <span className='font-semibold'>
+                        {value.charAt(0).toUpperCase() + value.slice(1)}
+                      </span>
+                    ) : (
+                      <Link to={to} className='link link-hover'>
+                        {value.charAt(0).toUpperCase() + value.slice(1)}
+                      </Link>
+                    )}
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        </div>
+
         <TitleSection />
 
         <div className='flex flex-col md:flex-row md:items-end gap-4 mb-8 w-full'>
