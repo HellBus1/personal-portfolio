@@ -8,6 +8,7 @@ import NotFoundPage from './pages/NotFoundPage/NotFoundPage'
 import ArticlesPage from './pages/ArticlesPage/ArticlesPage'
 import VentNotePage from './pages/PlayStorePage/VentNote/VentNotePage'
 import OauthPage from './pages/PlayStorePage/VentNote/OauthPage'
+import VentFitPage from './pages/PlayStorePage/VentFit/VentFitPage'
 
 export const routes: RouteObject[] = [
   {
@@ -43,5 +44,9 @@ export const routes: RouteObject[] = [
   {
     path: RouteName.VENTNOTE_OAUTH_PRIVACY_POLICY,
     element: <OauthPage />
+  },
+  {
+    path: RouteName.VENTFIT_PRIVACY_POLICY,
+    element: <VentFitPage />
   }
 ]
