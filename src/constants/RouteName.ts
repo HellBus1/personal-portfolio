@@ -2,7 +2,8 @@ const NavbarRouteName = {
   HOME: '/',
   ABOUT: '/about',
   PROJECTS: '/projects',
-  ARTICLES: '/articles'
+  ARTICLES: '/articles',
+  VENTNOTE_PRIVACY_POCY: '/ventnote-privacy-policy'
 }
 
 const RouteName = {

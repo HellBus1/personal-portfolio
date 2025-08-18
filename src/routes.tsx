@@ -6,6 +6,7 @@ import { RouteName } from './constants/RouteName'
 import ProjectsPage from './pages/ProjectsPage/ProjectsPage'
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage'
 import ArticlesPage from './pages/ArticlesPage/ArticlesPage'
+import VentNotePage from './pages/PlayStorePage/VentNote/VentNotePage'
 
 export const routes: RouteObject[] = [
   {
@@ -33,5 +34,9 @@ export const routes: RouteObject[] = [
         element: <NotFoundPage />
       }
     ]
+  },
+  {
+    path: RouteName.VENTNOTE_PRIVACY_POCY,
+    element: <VentNotePage />
   }
 ]
