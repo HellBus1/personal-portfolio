@@ -121,8 +121,15 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className='flex-1 flex justify-end hidden md:flex'>
-          <div className='badge badge-primary text-sm p-3'>v{packageJson.version}</div>
+        <div className='flex-1 flex justify-end hidden md:flex items-center gap-4'>
+          <a
+            href='mailto:hello@mattrmost.com'
+            className='btn btn-primary btn-sm'
+            aria-label='Hire me'
+          >
+            Hire Me
+          </a>
+          <div className='badge badge-outline text-sm p-3'>v{packageJson.version}</div>
         </div>
       </div>
     </div>

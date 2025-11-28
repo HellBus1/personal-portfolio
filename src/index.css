@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @layer base {
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
   /* inter var - latin */
   @font-face {
     font-family: 'Inter';
@@ -49,6 +54,7 @@
   .p {
     @apply text-sm md:text-base;
   }
+
   /* #endregion  /**======== Typography =========== */
 
   .layout {
@@ -64,5 +70,71 @@
   /* Class to adjust with sticky footer */
   .min-h-main {
     @apply min-h-[calc(100vh-56px)];
+  }
+
+  /* Prose styling for MDX content */
+  .prose {
+    @apply text-neutral-content;
+  }
+
+  .prose h1 {
+    @apply text-3xl font-bold mt-8 mb-4;
+  }
+
+  .prose h2 {
+    @apply text-2xl font-bold mt-6 mb-3;
+  }
+
+  .prose h3 {
+    @apply text-xl font-semibold mt-4 mb-2;
+  }
+
+  .prose p {
+    @apply mb-4 leading-relaxed;
+  }
+
+  .prose ul,
+  .prose ol {
+    @apply mb-4 ml-6;
+  }
+
+  .prose li {
+    @apply mb-2;
+  }
+
+  .prose code {
+    @apply bg-base-200 px-1 py-0.5 rounded text-sm;
+  }
+
+  .prose pre {
+    @apply bg-base-300 p-4 rounded-lg overflow-x-auto mb-4;
+  }
+
+  .prose pre code {
+    @apply bg-transparent p-0;
+  }
+
+  .prose blockquote {
+    @apply border-l-4 border-primary pl-4 italic my-4;
+  }
+
+  .prose a {
+    @apply text-primary hover:underline;
+  }
+
+  .prose img {
+    @apply rounded-lg my-4;
+  }
+
+  .prose hr {
+    @apply my-8 border-base-300;
+  }
+
+  .prose strong {
+    @apply font-semibold;
+  }
+
+  .prose em {
+    @apply italic;
   }
 }
