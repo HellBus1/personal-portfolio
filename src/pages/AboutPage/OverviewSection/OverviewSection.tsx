@@ -1,3 +1,5 @@
+import { IoDownload } from 'react-icons/io5'
+
 const OverviewSection = () => {
   return (
     <section className='flex flex-col-reverse md:flex-row items-center md:items-start gap-8 mb-16'>
@@ -15,6 +17,20 @@ const OverviewSection = () => {
             I believe in building tools that serve real human needs, combining technical expertise
             with empathy to create meaningful experiences.
           </p>
+        </div>
+
+        {/* Resume Download Button */}
+        <div className='flex flex-col sm:flex-row gap-4 items-center md:items-start'>
+          <a
+            href='/resume.pdf'
+            download='Syubban_Fakhriya_Resume.pdf'
+            className='btn btn-primary gap-2 w-full sm:w-auto'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <IoDownload size={20} />
+            Download Resume
+          </a>
         </div>
       </div>
       <div className='md:w-1/3 flex justify-center'>

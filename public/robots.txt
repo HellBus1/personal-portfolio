@@ -1,0 +1,13 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://mattrmost.com/sitemap.xml
+
+# Crawl delay (optional, helps prevent server overload)
+# Crawl-delay: 1
+
+# Disallow specific paths if needed (currently allowing all)
+# Disallow: /admin/
+# Disallow: /private/

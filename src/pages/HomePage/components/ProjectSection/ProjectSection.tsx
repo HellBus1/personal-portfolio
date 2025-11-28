@@ -14,7 +14,8 @@ import {
   SiDaisyui,
   SiReact
 } from 'react-icons/si'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { IoCheckmarkCircle, IoShareOutline } from 'react-icons/io5'
 import projectsDataRaw from '../../../../data/projects.json'
 import { Project } from '@/model/project'
 import { RouteName } from '@/constants/RouteName'
@@ -72,35 +73,62 @@ const ProjectSection = () => {
           {displayedProjects.map((item, index) => {
             if (item.featured) {
               return (
-                <Link
-                  to={item.path}
+                <div
                   key={`${item.id}-${index}`}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='card card-compact w-full h-80 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300'
-                  style={{ minHeight: 320, height: '100%' }}
+                  className='card card-compact w-full rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:ring-2 hover:ring-primary/50 bg-base-200 group'
+                  style={{ minHeight: 380, height: '100%' }}
                 >
-                  <figure className='h-48'>
+                  <figure className='h-48 relative overflow-hidden'>
                     <img
                       alt={item.name}
                       src={item.banner}
-                      className='rounded-t-lg w-full h-full border object-cover'
+                      className='rounded-t-lg w-full h-full object-cover transition-transform duration-300 group-hover:scale-110'
                     />
+                    {item.year && (
+                      <span className='absolute top-3 right-3 badge badge-primary badge-sm'>
+                        {item.year}
+                      </span>
+                    )}
                   </figure>
-                  <div className='px-5 py-4'>
+                  <div className='px-5 py-4 flex flex-col flex-1'>
                     <div className='flex flex-row mt-2 mb-3 space-x-3 items-center'>
-                      {item.stacks.map((stack, index) => {
-                        return <div key={index}>{iconMapper[stack]}</div>
+                      {item.stacks.slice(0, 4).map((stack, index) => {
+                        return (
+                          <div key={index} className='text-primary'>
+                            {iconMapper[stack]}
+                          </div>
+                        )
                       })}
                     </div>
-                    <h3 className='text-lg font-semibold text-neutral-content line-clamp-2'>
+                    <h3 className='text-lg font-semibold text-neutral-content line-clamp-2 mb-2'>
                       {item.name}
                     </h3>
-                    <p className='text-base line-clamp-2 text-neutral-content/80 mt-2'>
+                    <p className='text-base line-clamp-2 text-neutral-content/80 mb-4 flex-1'>
                       {item.shortDescription}
                     </p>
+
+                    {/* CTAs */}
+                    <div className='flex gap-2 mt-auto'>
+                      <button
+                        onClick={() => navigate(`/projects/${item.id}`)}
+                        className='btn btn-sm btn-primary flex-1 gap-1'
+                      >
+                        <IoCheckmarkCircle size={16} />
+                        Details
+                      </button>
+                      <a
+                        href={item.path}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        className='btn btn-sm btn-outline flex-1 gap-1'
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <IoShareOutline size={16} />
+                        Visit
+                      </a>
+                    </div>
                   </div>
-                </Link>
+                </div>
               )
             }
           })}
@@ -109,7 +137,7 @@ const ProjectSection = () => {
 
       <div className='mt-12'>
         <button
-          className='btn btn-outline text-neutral-content px-8 text-base md:text-lg capitalize'
+          className='btn btn-outline text-neutral-content px-8 text-base md:text-lg capitalize hover:scale-105 transition-transform'
           onClick={() => navigate(RouteName.PROJECTS)}
         >
           {'See more projects'}
