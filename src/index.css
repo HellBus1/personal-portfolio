@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @layer base {
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
   /* inter var - latin */
   @font-face {
     font-family: 'Inter';
@@ -49,6 +54,7 @@
   .p {
     @apply text-sm md:text-base;
   }
+
   /* #endregion  /**======== Typography =========== */
 
   .layout {
@@ -64,5 +70,124 @@
   /* Class to adjust with sticky footer */
   .min-h-main {
     @apply min-h-[calc(100vh-56px)];
+  }
+
+  /* Prose styling for MDX content */
+  .prose {
+    @apply text-neutral-content;
+  }
+
+  .prose h1 {
+    @apply text-3xl font-bold mt-8 mb-4;
+  }
+
+  .prose h2 {
+    @apply text-2xl font-bold mt-6 mb-3;
+  }
+
+  .prose h3 {
+    @apply text-xl font-semibold mt-4 mb-2;
+  }
+
+  .prose p {
+    @apply mb-4 leading-relaxed;
+  }
+
+  .prose ul,
+  .prose ol {
+    @apply mb-4 ml-6;
+    list-style-position: outside;
+  }
+
+  .prose ul {
+    list-style-type: disc;
+  }
+
+  .prose ol {
+    list-style-type: decimal;
+  }
+
+  .prose li {
+    @apply mb-2;
+    display: list-item;
+  }
+
+  .prose code {
+    @apply bg-base-200 px-1 py-0.5 rounded text-sm;
+  }
+
+  .prose pre {
+    @apply bg-base-300 p-4 rounded-lg overflow-x-auto mb-4;
+  }
+
+  .prose pre code {
+    @apply bg-transparent p-0;
+  }
+
+  .prose blockquote {
+    @apply border-l-4 border-primary pl-4 italic my-4;
+  }
+
+  .prose a {
+    @apply text-primary hover:underline;
+  }
+
+  .prose img {
+    @apply rounded-lg my-4;
+  }
+
+  .prose hr {
+    @apply my-8 border-base-300;
+  }
+
+  .prose strong {
+    @apply font-semibold;
+  }
+
+  .prose em {
+    @apply italic;
+  }
+
+  .prose table {
+    @apply w-full my-6;
+    display: table;
+    border-spacing: 0;
+    border-collapse: separate;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background-color: transparent;
+  }
+
+  .prose thead {
+    display: table-header-group;
+  }
+
+  .prose tbody {
+    display: table-row-group;
+  }
+
+  .prose tr {
+    display: table-row;
+  }
+
+  .prose th {
+    @apply font-semibold text-left p-4 bg-base-300 border-b-2 border-base-100;
+    display: table-cell;
+    vertical-align: top;
+    color: inherit;
+  }
+
+  .prose td {
+    @apply p-4 bg-base-200 border-b border-base-300;
+    display: table-cell;
+    vertical-align: top;
+  }
+
+  .prose tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .prose tr:hover td {
+    @apply bg-base-300/50;
   }
 }

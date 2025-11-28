@@ -42,27 +42,30 @@ const ArticleSection = () => {
               key={`${item.id}-${index}`}
               target='_blank'
               rel='noopener noreferrer'
-              className='card card-compact w-full h-80 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 bg-base-200 flex flex-col'
-              style={{ minHeight: 320, height: '100%' }}
+              className='card card-compact w-full rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:ring-2 hover:ring-primary/50 bg-base-200 flex flex-col group'
+              style={{ minHeight: 380, height: '100%' }}
             >
-              <figure className='h-48'>
+              <figure className='h-48 relative overflow-hidden'>
                 <img
                   alt={item.title}
                   src={item.banner}
-                  className='rounded-t-lg w-full h-full border object-cover'
+                  className='rounded-t-lg w-full h-full object-cover transition-transform duration-300 group-hover:scale-110'
                 />
+                <span className='absolute top-3 right-3 badge badge-primary badge-sm'>
+                  Featured
+                </span>
               </figure>
               <div className='card-body flex flex-col justify-between flex-1 px-5 py-4'>
                 <div>
-                  <h3 className='text-lg font-semibold text-neutral-content line-clamp-2'>
+                  <h3 className='text-lg font-semibold text-neutral-content line-clamp-2 mb-2'>
                     {item.title}
                   </h3>
-                  <p className='text-base text-neutral-content/80 mt-2 line-clamp-2'>
+                  <p className='text-base text-neutral-content/80 line-clamp-2'>
                     {item.shortDescription}
                   </p>
                 </div>
                 <div>
-                  <div className='flex flex-col mt-2'>
+                  <div className='flex flex-col mt-4'>
                     <div className='flex flex-wrap gap-2'>
                       {item.tags?.slice(0, 3).map((tag) => (
                         <span key={tag} className='badge badge-outline text-xs px-2 py-1'>
@@ -71,7 +74,9 @@ const ArticleSection = () => {
                       ))}
                     </div>
                     <div className='mt-4'>
-                      {item.readTime && <span className='text text-xs'>{item.readTime}</span>}
+                      {item.readTime && (
+                        <span className='text-xs text-neutral-content/60'>📖 {item.readTime}</span>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -83,7 +88,7 @@ const ArticleSection = () => {
 
       <div className='mt-12'>
         <button
-          className='btn btn-outline text-neutral-content px-8 text-base md:text-lg capitalize'
+          className='btn btn-outline text-neutral-content px-8 text-base md:text-lg capitalize hover:scale-105 transition-transform'
           onClick={() => navigate(RouteName.ARTICLES)}
         >
           {'See more articles'}

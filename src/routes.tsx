@@ -4,6 +4,7 @@ import Root from '@/pages/Root'
 import AboutPage from '@/pages/AboutPage/AboutPage'
 import { RouteName } from './constants/RouteName'
 import ProjectsPage from './pages/ProjectsPage/ProjectsPage'
+import ProjectDetailPage from './pages/ProjectDetailPage/ProjectDetailPage'
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage'
 import ArticlesPage from './pages/ArticlesPage/ArticlesPage'
 import VentNotePage from './pages/PlayStorePage/VentNote/VentNotePage'
@@ -23,6 +24,11 @@ export const routes: RouteObject[] = [
         path: RouteName.PROJECTS,
         element: <ProjectsPage />
       },
+      {
+        path: '/projects/:projectId',
+        element: <ProjectDetailPage />
+      },
+
       {
         path: RouteName.ARTICLES,
         element: <ArticlesPage />
