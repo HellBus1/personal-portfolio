@@ -4,6 +4,7 @@
     "name": "VentNote",
     "shortDescription": "VentNote is a simple note management app built with native Kotlin, making note-taking a breeze.",
     "banner": "https://firebasestorage.googleapis.com/v0/b/personalwebsite-af6e7.appspot.com/o/projects%2Fventnote_banner.jpg?alt=media&token=ea2b43b4-8020-431a-9e8b-ee20339b7eb9",
+    "project_link": "https://github.com/HellBus1/VentNote",
     "path": "https://play.google.com/store/apps/details?id=com.digiventure.ventnote",
     "createdAt": {
       "seconds": 1680714000,
@@ -22,6 +23,7 @@
     "name": "VentFit",
     "shortDescription": "VentFit empowers your health journey with a BMI Calculator and more, built with Flutter.",
     "banner": "https://firebasestorage.googleapis.com/v0/b/personalwebsite-af6e7.appspot.com/o/projects%2Fventfit_banner.jpg?alt=media&token=cebdda28-17a3-4077-bae6-9f024a6054a3",
+    "project_link": "https://github.com/HellBus1/VentFit",
     "path": "https://play.google.com/store/apps/details?id=com.digiventure.ventfit",
     "createdAt": {
       "seconds": 1680714000,
@@ -41,6 +43,7 @@
     "name": "InvestCount",
     "shortDescription": "InvestCount is a simple investment calculator that helps you calculate interest to make smarter financial decisions.",
     "banner": "https://firebasestorage.googleapis.com/v0/b/personalwebsite-af6e7.appspot.com/o/projects%2Finvestcount_banner.png?alt=media&token=398f9d38-3891-4dfe-862f-807a5a3fdef8",
+    "project_link": "https://github.com/HellBus1/InvestCount",
     "path": "https://investcount.mattrmost.com/",
     "createdAt": {
       "seconds": 1680714000,
@@ -61,6 +64,7 @@
     "name": "Spring Boot Exploration",
     "shortDescription": "A repository dedicated to exploring the industry standards of software engineering with Spring Boot.",
     "banner": "https://firebasestorage.googleapis.com/v0/b/personalwebsite-af6e7.appspot.com/o/projects%2Fspringboot_exploration.jpg?alt=media&token=2966a660-ff8c-4fb6-8731-6b27aa89a213",
+    "project_link": "https://github.com/HellBus1/spring-playground",
     "path": "https://github.com/HellBus1/spring-playground",
     "createdAt": {
       "seconds": 1680714000,
@@ -80,6 +84,7 @@
     "name": "React Tailwind Starter",
     "shortDescription": "React Tailwind Starter is a React.js template with Vite, packed with all the essential libraries.",
     "banner": "https://firebasestorage.googleapis.com/v0/b/personalwebsite-af6e7.appspot.com/o/projects%2Freact-template_banner.png?alt=media&token=e58709f3-8225-490e-b2ca-f51323cf868a",
+    "project_link": "https://github.com/HellBus1/ts-react-tailwind-starter",
     "path": "https://github.com/HellBus1/ts-react-tailwind-starter",
     "createdAt": {
       "seconds": 1680714000,

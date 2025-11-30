@@ -102,7 +102,7 @@ const ProjectDetailPage = () => {
           {/* Action Buttons */}
           <div className='flex gap-4'>
             <a
-              href={project.path}
+              href={project.project_link}
               target='_blank'
               rel='noopener noreferrer'
               className='btn btn-primary'

@@ -96,10 +96,20 @@
   .prose ul,
   .prose ol {
     @apply mb-4 ml-6;
+    list-style-position: outside;
+  }
+
+  .prose ul {
+    list-style-type: disc;
+  }
+
+  .prose ol {
+    list-style-type: decimal;
   }
 
   .prose li {
     @apply mb-2;
+    display: list-item;
   }
 
   .prose code {
@@ -136,5 +146,48 @@
 
   .prose em {
     @apply italic;
+  }
+
+  .prose table {
+    @apply w-full my-6;
+    display: table;
+    border-spacing: 0;
+    border-collapse: separate;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background-color: transparent;
+  }
+
+  .prose thead {
+    display: table-header-group;
+  }
+
+  .prose tbody {
+    display: table-row-group;
+  }
+
+  .prose tr {
+    display: table-row;
+  }
+
+  .prose th {
+    @apply font-semibold text-left p-4 bg-base-300 border-b-2 border-base-100;
+    display: table-cell;
+    vertical-align: top;
+    color: inherit;
+  }
+
+  .prose td {
+    @apply p-4 bg-base-200 border-b border-base-300;
+    display: table-cell;
+    vertical-align: top;
+  }
+
+  .prose tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .prose tr:hover td {
+    @apply bg-base-300/50;
   }
 }

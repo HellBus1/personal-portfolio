@@ -5,6 +5,7 @@ export interface Project {
   name: string
   shortDescription: string
   banner: string
+  project_link: string
   path: string
   createdAt: CreatedAt
   stacks: string[]
