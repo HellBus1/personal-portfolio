@@ -1,6 +1,7 @@
 import OverviewSection from './OverviewSection/OverviewSection'
+import SkillsSection from './SkillsSection/SkillsSection'
 import DrivesMeSection from './DrivesMeSection/DrivesMeSection'
-import CurrentFocusSection from './CurrentFocus/CurrentFocusSection'
+import TimelineSection from './TimelineSection/TimelineSection'
 import ContactSection from './ContactSection/ContactSection'
 import RootLayout from '@/components/RootLayout/RootLayout'
 import { useLocation, Link } from 'react-router-dom'
@@ -41,8 +42,9 @@ const AboutPage = () => {
           </div>
         </div>
         <OverviewSection />
+        <SkillsSection />
         <DrivesMeSection />
-        <CurrentFocusSection />
+        <TimelineSection />
         <ContactSection />
       </div>
     </RootLayout>
