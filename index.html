@@ -1,37 +1,102 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <!-- Favicon - Multiple formats for better browser support -->
-    <link rel="icon" type="image/svg+xml" href="/assets/web_icon.svg" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+<head>
+  <meta charset="UTF-8" />
+  <!-- Favicon - Multiple formats for better browser support -->
+  <link rel="icon" type="image/svg+xml" href="/assets/web_icon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#570df8" />
 
-    <!-- SEO Improvements -->
-    <title>Syubban Fakhriya — Developer & Writer (Java, Spring Boot, React, Mobile)</title>
-    <meta name="description" content="Developer and writer passionate about building impactful software and sharing knowledge. Specializing in Java, Spring Boot, React, and digital transformation." />
-    <meta name="author" content="Syubban Fakhriya" />
+  <!-- SEO Meta Tags -->
+  <title>Syubban Fakhriya — Full-Stack Developer & Content Writer</title>
+  <meta name="description"
+    content="Full-Stack Developer & Content Writer passionate about building impactful software and sharing knowledge. Specializing in Java, Spring Boot, React, Flutter, and digital transformation." />
+  <meta name="author" content="Syubban Fakhriya" />
+  <meta name="keywords"
+    content="Syubban Fakhriya, Full-Stack Developer, Software Engineer, Java, Spring Boot, React, Flutter, Kotlin, Content Writer, Web Development, Mobile Development" />
 
-    <!-- Open Graph for social sharing -->
-    <meta property="og:title" content="Syubban Fakhriya - Developer & Writer" />
-    <meta property="og:description" content="Developer and writer focused on Java, Spring Boot, React, and sharing insights on software engineering and digital transformation." />
-    <meta property="og:image" content="/assets/web_icon.svg" />
-    <meta property="og:url" content="https://mattrmost.com/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="mattrmost" />
-    <meta property="og:locale" content="en_US" />
+  <!-- Open Graph for social sharing -->
+  <meta property="og:title" content="Syubban Fakhriya — Full-Stack Developer & Content Writer" />
+  <meta property="og:description"
+    content="Full-Stack Developer & Content Writer passionate about building impactful software and sharing knowledge. Specializing in Java, Spring Boot, React, and Flutter." />
+  <meta property="og:image" content="https://mattrmost.com/avatar.jpg" />
+  <meta property="og:url" content="https://mattrmost.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Syubban Fakhriya Portfolio" />
+  <meta property="og:locale" content="en_US" />
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://mattrmost.com/" />
-    <link rel="alternate" hreflang="en" href="https://mattrmost.com/" />
-    <link rel="alternate" hreflang="x-default" href="https://mattrmost.com/" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Syubban Fakhriya — Full-Stack Developer & Content Writer" />
+  <meta name="twitter:description"
+    content="Full-Stack Developer & Content Writer passionate about building impactful software and sharing knowledge." />
+  <meta name="twitter:image" content="https://mattrmost.com/avatar.jpg" />
+  <meta name="twitter:creator" content="@mattrmost" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://mattrmost.com/" />
+  <link rel="alternate" hreflang="en" href="https://mattrmost.com/" />
+  <link rel="alternate" hreflang="x-default" href="https://mattrmost.com/" />
+
+  <!-- Structured Data - Person Schema -->
+  <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Syubban Fakhriya",
+        "url": "https://mattrmost.com",
+        "image": "https://mattrmost.com/avatar.jpg",
+        "jobTitle": "Software Engineer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "PT. SMBC Indonesia"
+        },
+        "description": "Full-Stack Developer & Content Writer passionate about building impactful software and sharing knowledge.",
+        "sameAs": [
+          "https://github.com/HellBus1",
+          "https://linkedin.com/in/syubban",
+          "https://medium.com/@fakrii",
+          "https://instagram.com/mattr.most"
+        ],
+        "knowsAbout": [
+          "Java",
+          "Spring Boot",
+          "React",
+          "TypeScript",
+          "Flutter",
+          "Kotlin",
+          "Software Engineering",
+          "Web Development",
+          "Mobile Development"
+        ]
+      }
+    </script>
+
+  <!-- Structured Data - WebSite Schema -->
+  <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Syubban Fakhriya Portfolio",
+        "url": "https://mattrmost.com",
+        "description": "Portfolio and blog of Syubban Fakhriya, a Full-Stack Developer and Content Writer",
+        "author": {
+          "@type": "Person",
+          "name": "Syubban Fakhriya"
+        },
+        "inLanguage": "en-US"
+      }
+    </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>
