@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { FaEnvelope, FaInstagram, FaLinkedin } from 'react-icons/fa'
+import { IoMailOutline, IoLogoInstagram, IoLogoLinkedin, IoSendOutline } from 'react-icons/io5'
 
 const ContactSection = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
@@ -10,114 +10,154 @@ const ContactSection = () => {
     setStatus('sending')
     const subject = encodeURIComponent(`Portfolio Contact from ${form.name}`)
     const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`)
-    window.location.href = `mailto:mosmatter1@gmail.com?subject=${subject}&body=${body}`
+    window.location.href = `mailto:hello@mattrmost.com?subject=${subject}&body=${body}`
     setStatus('sent')
   }
 
   return (
-    <section className='space-y-12'>
-      <h2 className='text-2xl md:text-3xl font-bold text-neutral-content'>Get In Touch</h2>
-      <div className='flex flex-col md:flex-row gap-8'>
-        {/* Email Contact Card */}
-        <div className='flex-1 bg-base-200 rounded-lg p-6 shadow space-y-6 max-w-lg flex flex-col justify-between'>
+    <section className='pt-8 border-t border-base-content/10'>
+      <div className='mb-8'>
+        <span className='text-xs font-semibold tracking-wider text-primary uppercase mb-1 block'>
+          Let&apos;s Connect
+        </span>
+        <h2 className='text-2xl sm:text-3xl font-bold font-display text-neutral-content tracking-tight'>
+          Get In Touch
+        </h2>
+      </div>
+
+      <div className='grid gap-6 md:grid-cols-2'>
+        {/* Email Direct Form */}
+        <div className='card-clean p-6 flex flex-col justify-between'>
           <div>
-            <h3 className='text-xl font-semibold flex items-center gap-2 mb-4'>
-              <FaEnvelope /> Send me an Email
-            </h3>
-            <form className='space-y-4' onSubmit={handleSubmit}>
+            <div className='flex items-center gap-2 text-primary mb-4 font-bold text-base'>
+              <IoMailOutline size={18} />
+              <span className='text-neutral-content'>Send a Message</span>
+            </div>
+
+            <form className='space-y-3.5' onSubmit={handleSubmit}>
               <div>
-                <label htmlFor='name' className='block text-sm font-medium text-neutral-content'>
-                  Name
+                <label
+                  htmlFor='name'
+                  className='block text-xs font-medium text-base-content/80 mb-1'
+                >
+                  Your Name
                 </label>
                 <input
                   id='name'
                   type='text'
                   required
-                  className='mt-1 w-full px-3 py-2 rounded border border-base-300 bg-base-100 text-neutral-content'
+                  placeholder='e.g. Alex Morgan'
+                  className='w-full px-3.5 py-2 rounded-lg bg-base-100 border border-base-content/15 text-sm text-neutral-content placeholder:text-base-content/40 focus:outline-none focus:border-primary transition-colors'
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   autoComplete='name'
                 />
               </div>
+
               <div>
-                <label htmlFor='email' className='block text-sm font-medium text-neutral-content'>
-                  Email
+                <label
+                  htmlFor='email'
+                  className='block text-xs font-medium text-base-content/80 mb-1'
+                >
+                  Your Email
                 </label>
                 <input
                   id='email'
                   type='email'
                   required
-                  className='mt-1 w-full px-3 py-2 rounded border border-base-300 bg-base-100 text-neutral-content'
+                  placeholder='alex@example.com'
+                  className='w-full px-3.5 py-2 rounded-lg bg-base-100 border border-base-content/15 text-sm text-neutral-content placeholder:text-base-content/40 focus:outline-none focus:border-primary transition-colors'
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   autoComplete='email'
                 />
               </div>
+
               <div>
-                <label htmlFor='message' className='block text-sm font-medium text-neutral-content'>
+                <label
+                  htmlFor='message'
+                  className='block text-xs font-medium text-base-content/80 mb-1'
+                >
                   Message
                 </label>
                 <textarea
                   id='message'
                   required
-                  rows={4}
-                  className='mt-1 w-full px-3 py-2 rounded border border-base-300 bg-base-100 text-neutral-content'
+                  rows={3}
+                  placeholder='Tell me about your project, questions, or ideas...'
+                  className='w-full px-3.5 py-2 rounded-lg bg-base-100 border border-base-content/15 text-sm text-neutral-content placeholder:text-base-content/40 focus:outline-none focus:border-primary transition-colors resize-none'
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                 />
               </div>
+
               <button
                 type='submit'
-                className='inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-content rounded-md hover:bg-primary/90 transition-colors'
+                className='btn-primary-custom w-full mt-2'
                 disabled={status === 'sending'}
               >
-                <FaEnvelope size={16} />
-                {status === 'sending' ? 'Sending...' : 'Send Message'}
+                <IoSendOutline size={15} />
+                <span>{status === 'sending' ? 'Opening Mail Client...' : 'Send Message'}</span>
               </button>
+
               {status === 'sent' && (
-                <p className='text-success text-sm mt-2'>
-                  Your email client should open. If not, please email me directly!
+                <p className='text-xs text-primary font-medium text-center mt-2'>
+                  Email client triggered. Feel free to email directly at hello@mattrmost.com
                 </p>
               )}
             </form>
           </div>
         </div>
-        {/* Instagram & LinkedIn Contact Card */}
-        <div className='flex-1 bg-base-200 rounded-lg p-6 shadow space-y-6 max-w-lg flex flex-col justify-between'>
+
+        {/* Direct Channels */}
+        <div className='card-clean p-6 flex flex-col justify-between'>
           <div>
-            <h3 className='text-xl font-semibold flex items-center gap-2 mb-4'>
-              <FaInstagram className='text-pink-500' /> DM me on Instagram
-            </h3>
-            <p className='text-base text-neutral-content mb-4'>
-              Prefer social? You can also reach out directly via Instagram or LinkedIn for a quick
-              chat or collaboration.
+            <div className='flex items-center gap-2 text-primary mb-4 font-bold text-base'>
+              <span className='text-neutral-content'>Direct Channels</span>
+            </div>
+
+            <p className='text-xs sm:text-sm text-base-content/80 mb-6 leading-relaxed'>
+              Prefer social messaging or professional networking? Reach out via LinkedIn or
+              Instagram — I typically respond within 24 hours.
             </p>
-            <div className='flex flex-col gap-3 mb-6'>
+
+            <div className='space-y-3'>
+              <a
+                href='https://linkedin.com/in/syubban'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='flex items-center justify-between p-3.5 rounded-lg bg-base-300 border border-base-content/10 hover:border-primary/40 hover:bg-base-300/80 transition-all text-sm font-medium text-neutral-content group'
+                aria-label='Connect on LinkedIn'
+              >
+                <div className='flex items-center gap-2.5'>
+                  <IoLogoLinkedin size={20} className='text-[#0a66c2]' />
+                  <span>LinkedIn Message</span>
+                </div>
+                <span className='text-xs text-primary group-hover:translate-x-0.5 transition-transform'>
+                  Connect →
+                </span>
+              </a>
+
               <a
                 href='https://instagram.com/mattr.most'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-pink-500 to-yellow-500 text-white rounded-md font-medium hover:opacity-90 transition'
-                aria-label='DM me on Instagram'
+                className='flex items-center justify-between p-3.5 rounded-lg bg-base-300 border border-base-content/10 hover:border-primary/40 hover:bg-base-300/80 transition-all text-sm font-medium text-neutral-content group'
+                aria-label='DM on Instagram'
               >
-                <FaInstagram size={18} />
-                @mattr.most
-              </a>
-              <a
-                href='https://linkedin.com/in/syubbanfakhriya'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='inline-flex items-center gap-2 px-4 py-2 bg-blue-700 text-white rounded-md font-medium hover:bg-blue-800 transition'
-                aria-label='Connect on LinkedIn'
-              >
-                <FaLinkedin size={18} />
-                LinkedIn
+                <div className='flex items-center gap-2.5'>
+                  <IoLogoInstagram size={20} className='text-[#e1306c]' />
+                  <span>Instagram Direct</span>
+                </div>
+                <span className='text-xs text-primary group-hover:translate-x-0.5 transition-transform'>
+                  @mattr.most →
+                </span>
               </a>
             </div>
-            <hr className='border-base-300 my-2' />
-            <div className='text-sm text-neutral-content/80 mt-4'>
-              <span>I'm active on both platforms and usually reply within a day.</span>
-            </div>
+          </div>
+
+          <div className='mt-6 pt-4 border-t border-base-content/10 text-xs text-base-content/60 text-center sm:text-left'>
+            Location: Jakarta, Indonesia (UTC+7)
           </div>
         </div>
       </div>

@@ -6,10 +6,11 @@ import ArticleSection from './components/ArticleSection/ArticleSection'
 const HomePage = () => {
   return (
     <RootLayout>
-      <OverviewSection />
-      <ProjectSection />
-      <div className='my-32' />
-      <ArticleSection />
+      <div className='w-full'>
+        <OverviewSection />
+        <ProjectSection />
+        <ArticleSection />
+      </div>
     </RootLayout>
   )
 }

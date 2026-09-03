@@ -1,15 +1,17 @@
 const TitleSection = () => {
   return (
-    <>
-      <div className='w-full max-w-6xl'>
-        <h2 className='text-3xl md:text-4xl font-bold text-neutral-content text-center'>
-          Project <span className='text-primary'>Collections</span>
-        </h2>
-        <p className='text-base md:text-lg mt-4 text-center text-neutral-content/80 mb-8'>
-          Every project here was created to solve problems I faced at work or in daily life.
-        </p>
-      </div>
-    </>
+    <div className='mb-8'>
+      <span className='text-xs font-semibold tracking-wider text-primary uppercase mb-2 block'>
+        Portfolio Archive
+      </span>
+      <h1 className='text-3xl sm:text-4xl md:text-5xl font-bold font-display text-neutral-content tracking-tight mb-3'>
+        Project Collections
+      </h1>
+      <p className='text-sm sm:text-base text-base-content/80 max-w-2xl leading-relaxed'>
+        A curated archive of production applications, developer utilities, and mobile apps built
+        with Kotlin, Flutter, React, and Spring Boot.
+      </p>
+    </div>
   )
 }
 
