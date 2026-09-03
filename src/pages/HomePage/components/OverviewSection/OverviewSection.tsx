@@ -1,12 +1,7 @@
-import { SiLinkedin, SiMedium, SiGithub } from 'react-icons/si'
 import { Link } from 'react-router-dom'
-import { FaInfoCircle, FaEnvelope } from 'react-icons/fa'
-import {
-  IoRocketSharp,
-  IoCodeSlashSharp,
-  IoDocumentTextSharp,
-  IoBriefcaseSharp
-} from 'react-icons/io5'
+import { SiLinkedin, SiMedium, SiGithub } from 'react-icons/si'
+import { HiOutlineArrowDown, HiOutlineSparkles } from 'react-icons/hi2'
+import { IoBriefcaseOutline, IoCodeSlashOutline, IoDocumentTextOutline } from 'react-icons/io5'
 import projectsData from '@/data/projects.json'
 import articlesData from '@/data/articles.json'
 
@@ -18,130 +13,122 @@ const OverviewSection = () => {
     }
   }
 
-  const featuredProjectsCount = projectsData.length
-  const featuredArticlesCount = articlesData.length
-
-  const stats = [
-    { label: 'Projects', value: featuredProjectsCount, icon: IoCodeSlashSharp },
-    { label: 'Articles', value: featuredArticlesCount, icon: IoDocumentTextSharp },
-    { label: 'Experience', value: '2+ Years', icon: IoBriefcaseSharp }
-  ]
+  const projectCount = projectsData.length
+  const articleCount = articlesData.length
 
   return (
-    <section className='min-h-screen flex flex-col justify-center items-center px-8 md:px-12 lg:px-20 mt-8'>
-      <div className='flex flex-col justify-center items-center'>
-        {/* Avatar */}
-        <div className='avatar mb-6 md:mb-8'>
-          <div className='w-[180px] md:w-[200px] h-[180px] md:h-[200px] rounded-full ring-2 ring-primary/20 transition-all duration-300 hover:ring-primary/40 hover:ring-4'>
-            <img
-              alt='Avatar'
-              src={'/avatar.jpg'}
-              className='w-full h-full object-cover transition-transform duration-300 hover:scale-105'
-            />
+    <section className='pt-28 pb-16 md:pt-36 md:pb-24 w-full max-w-6xl mx-auto px-6 md:px-12'>
+      <div className='flex flex-col-reverse lg:flex-row items-center lg:items-start justify-between gap-12 lg:gap-16'>
+        {/* Left Column: Narrative, Typography & Actions */}
+        <div className='flex-1 flex flex-col items-center lg:items-start text-center lg:text-left'>
+          {/* Status badge */}
+          <div className='inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/25 text-primary text-xs font-semibold mb-6'>
+            <span className='w-2 h-2 rounded-full bg-primary animate-pulse' />
+            <span>Available for new projects & collaborations</span>
+          </div>
+
+          {/* Headline */}
+          <h1 className='text-4xl sm:text-5xl lg:text-6xl font-extrabold font-display text-neutral-content tracking-tight leading-[1.15] mb-6'>
+            Crafting scalable software &amp; <span className='text-primary'>deliberate</span>{' '}
+            digital experiences.
+          </h1>
+
+          {/* Concise, non-bloated bio */}
+          <p className='text-base sm:text-lg text-base-content/90 max-w-xl leading-relaxed mb-8'>
+            Hi, I&apos;m{' '}
+            <strong className='text-neutral-content font-semibold'>Syubban Fakhriya</strong> — a
+            Software Engineer based in Indonesia. I specialize in Java, Spring Boot, React, and
+            Kotlin to build high-performance systems and intuitive applications.
+          </p>
+
+          {/* Minimalist Stat Highlights */}
+          <div className='grid grid-cols-3 gap-3 sm:gap-4 w-full max-w-lg mb-8'>
+            <div className='p-3.5 rounded-xl bg-base-200 border border-base-content/10 flex flex-col items-center lg:items-start'>
+              <div className='flex items-center gap-1.5 text-primary mb-1'>
+                <IoCodeSlashOutline size={16} />
+                <span className='font-bold text-lg text-neutral-content'>{projectCount}+</span>
+              </div>
+              <span className='text-xs text-base-content/70'>Projects Built</span>
+            </div>
+
+            <div className='p-3.5 rounded-xl bg-base-200 border border-base-content/10 flex flex-col items-center lg:items-start'>
+              <div className='flex items-center gap-1.5 text-primary mb-1'>
+                <IoDocumentTextOutline size={16} />
+                <span className='font-bold text-lg text-neutral-content'>{articleCount}+</span>
+              </div>
+              <span className='text-xs text-base-content/70'>Articles Written</span>
+            </div>
+
+            <div className='p-3.5 rounded-xl bg-base-200 border border-base-content/10 flex flex-col items-center lg:items-start'>
+              <div className='flex items-center gap-1.5 text-primary mb-1'>
+                <IoBriefcaseOutline size={16} />
+                <span className='font-bold text-lg text-neutral-content'>2+ Yrs</span>
+              </div>
+              <span className='text-xs text-base-content/70'>Engineering</span>
+            </div>
+          </div>
+
+          {/* Action CTAs */}
+          <div className='flex flex-wrap items-center justify-center lg:justify-start gap-3 w-full'>
+            <button onClick={scrollToProjects} className='btn-primary-custom'>
+              <span>Explore Projects</span>
+              <HiOutlineArrowDown size={16} />
+            </button>
+
+            <a href='mailto:hello@mattrmost.com' className='btn-secondary-custom'>
+              <HiOutlineSparkles size={16} />
+              <span>Get in Touch</span>
+            </a>
+
+            {/* Social Links inline */}
+            <div className='flex items-center gap-2 pl-2 sm:pl-4 text-base-content/70'>
+              <Link
+                to='https://github.com/HellBus1'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='p-2 rounded-lg hover:bg-base-200 hover:text-primary transition-colors'
+                aria-label='GitHub Profile'
+              >
+                <SiGithub size={18} />
+              </Link>
+              <Link
+                to='https://linkedin.com/in/syubban'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='p-2 rounded-lg hover:bg-base-200 hover:text-primary transition-colors'
+                aria-label='LinkedIn Profile'
+              >
+                <SiLinkedin size={18} />
+              </Link>
+              <Link
+                to='https://medium.com/@fakrii'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='p-2 rounded-lg hover:bg-base-200 hover:text-primary transition-colors'
+                aria-label='Medium Articles'
+              >
+                <SiMedium size={18} />
+              </Link>
+            </div>
           </div>
         </div>
 
-        {/* Name & Title */}
-        <p className='text-lg md:text-xl font-medium mb-3 md:mb-4 text-center text-neutral-content'>
-          Hi, I'm Syubban Fakhriya
-        </p>
-        <h1 className='text-3xl md:text-5xl font-bold text-center text-neutral-content mb-2'>
-          Full-Stack Developer
-        </h1>
-        <h2 className='text-2xl md:text-3xl font-semibold text-center text-primary'>
-          Content Writer
-        </h2>
-      </div>
+        {/* Right Column: Circular Avatar with Subtle Ring Glow */}
+        <div className='relative flex items-center justify-center flex-shrink-0'>
+          <div className='relative group'>
+            {/* Ambient subtle glow ring */}
+            <div className='absolute -inset-1 rounded-full bg-gradient-to-tr from-primary/30 to-secondary/30 blur-md opacity-60 group-hover:opacity-100 transition-opacity duration-300' />
 
-      {/* Bio */}
-      <div className='text-center mt-6 max-w-2xl'>
-        <p className='text-base md:text-lg text-neutral-content/80'>
-          I'm a passionate developer, specializing in fullstack development. <br /> I have
-          experience with Kotlin, Java, and the React ecosystem.
-        </p>
-      </div>
-
-      {/* Stats */}
-      <div className='grid grid-cols-3 gap-6 md:gap-8 mt-10 w-full max-w-2xl'>
-        {stats.map((stat, index) => {
-          const Icon = stat.icon
-          return (
-            <div
-              key={index}
-              className='flex flex-col items-center p-4 rounded-lg bg-base-200 hover:bg-base-300 transition-all duration-300 hover:scale-105'
-            >
-              <Icon className='text-primary mb-2' size={32} />
-              <span className='text-2xl md:text-3xl font-bold text-primary'>{stat.value}</span>
-              <span className='text-sm md:text-base text-neutral-content/70 mt-1'>
-                {stat.label}
-              </span>
+            <div className='relative w-44 h-44 sm:w-56 sm:h-56 rounded-full overflow-hidden border-2 border-base-content/15 bg-base-200 p-1'>
+              <img
+                src='/avatar.jpg'
+                alt='Syubban Fakhriya'
+                className='w-full h-full object-cover rounded-full transition-transform duration-300 group-hover:scale-105'
+                loading='eager'
+              />
             </div>
-          )
-        })}
-      </div>
-
-      {/* Social Links */}
-      <div className='flex flex-row mt-8 justify-center items-center space-x-4 md:space-x-6'>
-        <Link
-          to={'https://github.com/HellBus1/'}
-          target='_blank'
-          rel='noopener noreferrer'
-          className='hover:text-primary transition-colors'
-        >
-          <SiGithub
-            size={24}
-            className='text-neutral-content hover:scale-110 transition-transform'
-          />
-        </Link>
-        <div className='border-l h-4'></div>
-        <Link
-          to={'https://www.linkedin.com/in/syubban/'}
-          target='_blank'
-          rel='noopener noreferrer'
-          className='hover:text-primary transition-colors'
-        >
-          <SiLinkedin
-            size={24}
-            className='text-neutral-content hover:scale-110 transition-transform'
-          />
-        </Link>
-        <div className='border-l h-4'></div>
-        <Link
-          to={'https://medium.com/@fakrii/'}
-          target='_blank'
-          rel='noopener noreferrer'
-          className='hover:text-primary transition-colors'
-        >
-          <SiMedium
-            size={24}
-            className='text-neutral-content hover:scale-110 transition-transform'
-          />
-        </Link>
-      </div>
-
-      {/* CTAs */}
-      <div className='flex flex-col sm:flex-row mt-10 md:mt-12 gap-4 w-full max-w-md justify-center items-center'>
-        <a
-          href='mailto:hello@mattrmost.com'
-          className='btn btn-primary btn-md rounded-md text-sm md:text-base w-full sm:w-auto gap-2'
-        >
-          <IoRocketSharp size={18} />
-          Hire Me
-        </a>
-        <a
-          href='mailto:hello@mattrmost.com'
-          className='btn btn-outline btn-md text-neutral-content rounded-md text-sm md:text-base w-full sm:w-auto gap-2'
-        >
-          <FaEnvelope size={16} />
-          Contact Me
-        </a>
-        <button
-          className='btn btn-outline btn-md text-neutral-content rounded-md text-sm md:text-base w-full sm:w-auto gap-2'
-          onClick={scrollToProjects}
-        >
-          <FaInfoCircle size={16} />
-          Learn More
-        </button>
+          </div>
+        </div>
       </div>
     </section>
   )
