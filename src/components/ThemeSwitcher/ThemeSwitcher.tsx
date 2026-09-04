@@ -2,11 +2,15 @@ import { useEffect, useState } from 'react'
 import { IoSunnyOutline, IoMoonOutline } from 'react-icons/io5'
 
 const ThemeSwitcher = () => {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'myDark')
+  const [theme, setTheme] = useState(() =>
+    typeof window !== 'undefined' ? localStorage.getItem('theme') || 'myDark' : 'myDark'
+  )
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme)
-    localStorage.setItem('theme', theme)
+    if (typeof window !== 'undefined') {
+      document.documentElement.setAttribute('data-theme', theme)
+      localStorage.setItem('theme', theme)
+    }
   }, [theme])
 
   const toggleTheme = () => {

@@ -1,0 +1,27 @@
+# Syubban Fakhriya — Full-Stack Developer & Software Engineer
+
+> Personal portfolio, production projects, and technical publications by Syubban Fakhriya.
+
+## Core Summary
+- Name: Syubban Fakhriya (fakrii)
+- Title: Software Engineer & Full-Stack Developer
+- Current Company: PT. SMBC Indonesia
+- Location: Indonesia
+- Specializations: Java, Spring Boot, React, TypeScript, Kotlin, Flutter, Microservices, Scalable Systems
+- Website: https://mattrmost.com
+- GitHub: https://github.com/HellBus1
+- LinkedIn: https://linkedin.com/in/syubban
+- Medium: https://medium.com/@fakrii
+
+## Key Links
+- [About Syubban Fakhriya](https://mattrmost.com/about): Background, experience, and engineering values.
+- [Projects Archive](https://mattrmost.com/projects): Production apps and open-source systems.
+- [VentNote Android](https://mattrmost.com/projects/ventnote): Offline note-taking Android application (5,000+ downloads, 3.4★).
+- [VentFit Flutter](https://mattrmost.com/projects/ventfit): BMI calculator and fitness tracking mobile application.
+- [InvestCount](https://mattrmost.com/projects/investcount): Investment return and fixed deposit interest calculator.
+- [Spring Boot Exploration](https://mattrmost.com/projects/spring-boot-exploration): Enterprise architecture playground and performance practices.
+- [React Tailwind Starter](https://mattrmost.com/projects/react-tailwind-starter): Modern Vite React boilerplate.
+- [Technical Articles](https://mattrmost.com/articles): In-depth publications on Spring Boot transactions, garbage collection, and AI productivity.
+
+## Full Documentation
+For complete project narratives, architecture breakdowns, and publication excerpts, see [llms-full.txt](https://mattrmost.com/llms-full.txt).

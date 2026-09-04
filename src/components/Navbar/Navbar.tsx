@@ -20,7 +20,7 @@ const NAV_ITEMS: NavItem[] = [
 const Navbar = () => {
   const { pathname } = useLocation()
   const [visible, setVisible] = useState(true)
-  const lastScrollY = useRef(window.scrollY)
+  const lastScrollY = useRef(typeof window !== 'undefined' ? window.scrollY : 0)
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {

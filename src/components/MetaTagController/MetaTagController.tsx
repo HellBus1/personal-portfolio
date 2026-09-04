@@ -1,10 +1,13 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import { useSEO } from '@/hooks/useSEO'
 
 const MetaTagController = () => {
   const location = useLocation()
+  useSEO()
 
   useEffect(() => {
+    if (typeof window === 'undefined' || typeof document === 'undefined') return
     const params = new URLSearchParams(location.search)
     const hasRef = params.has('ref')
 
@@ -18,11 +21,6 @@ const MetaTagController = () => {
         meta.name = 'robots'
         meta.content = 'noindex, follow'
         document.head.appendChild(meta)
-      }
-    } else {
-      // If ref param is not present, optionally reset or remove the tag
-      if (existingMeta) {
-        existingMeta.setAttribute('content', 'index, follow')
       }
     }
   }, [location])

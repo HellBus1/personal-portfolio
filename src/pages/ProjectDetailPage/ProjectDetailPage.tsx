@@ -1,37 +1,31 @@
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import RootLayout from '@/components/RootLayout/RootLayout'
 import { IoArrowBackOutline, IoShareOutline } from 'react-icons/io5'
 import projectsData from '@/data/projects.json'
-import { Project } from '@/model/project'
 import { getStackIcon } from '@/theme'
+
+// Eagerly import all project MDX modules so they are available synchronously during SSR
+const projectModules = import.meta.glob<{ default: React.ComponentType }>(
+  '../../content/projects/*.mdx',
+  { eager: true }
+)
 
 const ProjectDetailPage = () => {
   const { projectId } = useParams<{ projectId: string }>()
   const navigate = useNavigate()
-  const [MDXContent, setMDXContent] = useState<React.ComponentType | null>(null)
-  const [project, setProject] = useState<Project | null>(null)
+
+  const project = projectsData.find((p) => p.id === projectId) || null
 
   useEffect(() => {
-    const loadProject = async () => {
-      const foundProject = projectsData.find((p) => p.id === projectId)
-      if (!foundProject) {
-        navigate('/projects')
-        return
-      }
-      setProject(foundProject)
-
-      // Dynamically import MDX content
-      try {
-        const mdxModule = await import(`../../content/projects/${projectId}.mdx`)
-        setMDXContent(() => mdxModule.default)
-      } catch (error) {
-        console.error('Failed to load project content:', error)
-      }
+    if (!project) {
+      navigate('/projects')
     }
+  }, [project, navigate])
 
-    loadProject()
-  }, [projectId, navigate])
+  const MDXContent = projectId
+    ? projectModules[`../../content/projects/${projectId}.mdx`]?.default || null
+    : null
 
   if (!project) {
     return (

@@ -1,13 +1,26 @@
-# Allow all crawlers
+# Search Engine Bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# AI Crawlers (AEO / GEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Default for all other crawlers
 User-agent: *
 Allow: /
 
-# Sitemap location
+# Sitemap
 Sitemap: https://mattrmost.com/sitemap.xml
-
-# Crawl delay (optional, helps prevent server overload)
-# Crawl-delay: 1
-
-# Disallow specific paths if needed (currently allowing all)
-# Disallow: /admin/
-# Disallow: /private/
