@@ -60,7 +60,7 @@
     "platform": "web"
   },
   {
-    "id": "springboot-exploration",
+    "id": "spring-boot-exploration",
     "name": "Spring Boot Exploration",
     "shortDescription": "A repository dedicated to exploring the industry standards of software engineering with Spring Boot.",
     "banner": "/data/assets/projects/springboot_exploration.jpg",
@@ -80,7 +80,7 @@
     "platform": "web"
   },
   {
-    "id": "react-template",
+    "id": "react-tailwind-starter",
     "name": "React Tailwind Starter",
     "shortDescription": "React Tailwind Starter is a React.js template with Vite, packed with all the essential libraries.",
     "banner": "/data/assets/projects/react_template_banner.png",
