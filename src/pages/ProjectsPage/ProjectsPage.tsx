@@ -1,16 +1,16 @@
 import { useState, useMemo } from 'react'
-import { useLocation, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import projectsDataRaw from '../../data/projects.json'
 import { Project } from '../../model/project'
 import RootLayout from '@/components/RootLayout/RootLayout'
 import TitleSection from './components/TitleSection/TitleSection'
 import ProjectItem from './components/ProjectItem/ProjectItem'
 import {
-  IoSearchSharp,
-  IoCodeSlashSharp,
-  IoPhonePortraitSharp,
-  IoCalendarSharp,
-  IoCloseCircle
+  IoSearchOutline,
+  IoCodeSlashOutline,
+  IoPhonePortraitOutline,
+  IoCalendarOutline,
+  IoCloseCircleOutline
 } from 'react-icons/io5'
 
 const getYear = (createdAt: { seconds: number }) =>
@@ -23,16 +23,13 @@ const getAllYears = (projects: Project[]) =>
   Array.from(
     new Set(
       projects
-        .map((p) =>
-          // Prefer explicit year field if present, else fallback to createdAt
-          p.year ? p.year : p.createdAt ? getYear(p.createdAt) : undefined
-        )
+        .map((p) => (p.year ? p.year : p.createdAt ? getYear(p.createdAt) : undefined))
         .filter(Boolean)
     )
   )
 
 const getAllPlatforms = (projects: Project[]) =>
-  Array.from(new Set(projects.map((p) => p.platform).filter(Boolean)))
+  Array.from(new Set(projects.map((p) => p.platform).filter((p): p is string => Boolean(p))))
 
 const ProjectsPage = () => {
   const [search, setSearch] = useState('')
@@ -53,10 +50,8 @@ const ProjectsPage = () => {
         project.shortDescription.toLowerCase().includes(search.toLowerCase())
 
       const matchesStack = stack ? project.stacks.map((s) => s.toLowerCase()).includes(stack) : true
-
       const matchesPlatform = platform ? project.platform === platform : true
 
-      // Prefer explicit year field if present, else fallback to createdAt
       const projectYear = project.year
         ? project.year
         : project.createdAt
@@ -69,7 +64,7 @@ const ProjectsPage = () => {
     })
   }, [search, stack, platform, year, projects])
 
-  const hasActiveFilters = search || stack || platform || year
+  const hasActiveFilters = Boolean(search || stack || platform || year)
 
   const clearFilters = () => {
     setSearch('')
@@ -78,91 +73,68 @@ const ProjectsPage = () => {
     setYear('')
   }
 
-  const location = useLocation()
-  const pathnames = location.pathname.split('/').filter((x) => x)
-
   return (
     <RootLayout>
-      <div className='w-full max-w-6xl mx-auto px-8 md:px-12 lg:px-20 pb-16 pt-24 min-h-[70vh] flex flex-col'>
-        <div className='text-sm mb-12'>
-          <div className='breadcrumbs'>
-            <ul>
-              <li>
-                <Link to='/' className='link link-hover'>
-                  Home
-                </Link>
-              </li>
-              {pathnames.map((value, idx) => {
-                const to = '/' + pathnames.slice(0, idx + 1).join('/')
-                const isLast = idx === pathnames.length - 1
-                return (
-                  <li key={to}>
-                    {isLast ? (
-                      <span className='font-semibold'>
-                        {value.charAt(0).toUpperCase() + value.slice(1)}
-                      </span>
-                    ) : (
-                      <Link to={to} className='link link-hover'>
-                        {value.charAt(0).toUpperCase() + value.slice(1)}
-                      </Link>
-                    )}
-                  </li>
-                )
-              })}
-            </ul>
-          </div>
-        </div>
+      <div className='w-full max-w-6xl mx-auto px-6 md:px-12 pt-28 pb-20 min-h-[75vh] flex flex-col'>
+        {/* Breadcrumb */}
+        <nav className='flex items-center gap-2 text-xs text-base-content/60 mb-8'>
+          <Link to='/' className='hover:text-primary transition-colors'>
+            Home
+          </Link>
+          <span>/</span>
+          <span className='text-neutral-content font-semibold'>Projects</span>
+        </nav>
 
         <TitleSection />
 
-        {/* Filters */}
-        <div className='flex flex-col gap-4 mb-6 w-full'>
-          <div className='flex flex-col md:flex-row md:items-end gap-4'>
-            {/* Search */}
-            <div className='relative w-full md:flex-1'>
-              <IoSearchSharp
-                className='absolute left-3 top-1/2 -translate-y-1/2 text-neutral-content/50'
-                size={20}
+        {/* Filter Controls Bar */}
+        <div className='bg-base-200/60 border border-base-content/10 rounded-xl p-3.5 mb-8'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3'>
+            {/* Search Input */}
+            <div className='relative'>
+              <IoSearchOutline
+                className='absolute left-3 top-1/2 -translate-y-1/2 text-base-content/50 pointer-events-none'
+                size={16}
               />
               <input
                 type='text'
                 placeholder='Search projects...'
-                className='input input-bordered w-full pl-10'
+                className='w-full h-10 pl-9 pr-3 rounded-lg bg-base-100 border border-base-content/15 text-sm text-neutral-content placeholder:text-base-content/40 focus:outline-none focus:border-primary transition-colors'
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 aria-label='Search projects'
               />
             </div>
 
-            {/* Tech Stack Filter */}
-            <div className='relative w-full md:w-48'>
-              <IoCodeSlashSharp
-                className='absolute left-3 top-1/2 -translate-y-1/2 text-neutral-content/50 pointer-events-none z-10'
-                size={18}
+            {/* Stack Select */}
+            <div className='relative'>
+              <IoCodeSlashOutline
+                className='absolute left-3 top-1/2 -translate-y-1/2 text-base-content/50 pointer-events-none'
+                size={16}
               />
               <select
-                className='select select-bordered w-full pl-10'
+                className='w-full h-10 pl-9 pr-8 rounded-lg bg-base-100 border border-base-content/15 text-sm text-neutral-content focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer'
                 value={stack}
                 onChange={(e) => setStack(e.target.value)}
-                aria-label='Filter by tech'
+                aria-label='Filter by tech stack'
               >
                 <option value=''>All Tech</option>
                 {stacks.map((s) => (
                   <option key={s} value={s}>
-                    {s}
+                    {s.charAt(0).toUpperCase() + s.slice(1)}
                   </option>
                 ))}
               </select>
             </div>
 
-            {/* Platform Filter */}
-            <div className='relative w-full md:w-48'>
-              <IoPhonePortraitSharp
-                className='absolute left-3 top-1/2 -translate-y-1/2 text-neutral-content/50 pointer-events-none z-10'
-                size={18}
+            {/* Platform Select */}
+            <div className='relative'>
+              <IoPhonePortraitOutline
+                className='absolute left-3 top-1/2 -translate-y-1/2 text-base-content/50 pointer-events-none'
+                size={16}
               />
               <select
-                className='select select-bordered w-full pl-10'
+                className='w-full h-10 pl-9 pr-8 rounded-lg bg-base-100 border border-base-content/15 text-sm text-neutral-content focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer'
                 value={platform}
                 onChange={(e) => setPlatform(e.target.value)}
                 aria-label='Filter by platform'
@@ -170,20 +142,20 @@ const ProjectsPage = () => {
                 <option value=''>All Platforms</option>
                 {platforms.map((p) => (
                   <option key={p} value={p}>
-                    {p}
+                    {p.charAt(0).toUpperCase() + p.slice(1)}
                   </option>
                 ))}
               </select>
             </div>
 
-            {/* Year Filter */}
-            <div className='relative w-full md:w-40'>
-              <IoCalendarSharp
-                className='absolute left-3 top-1/2 -translate-y-1/2 text-neutral-content/50 pointer-events-none z-10'
-                size={18}
+            {/* Year Select */}
+            <div className='relative'>
+              <IoCalendarOutline
+                className='absolute left-3 top-1/2 -translate-y-1/2 text-base-content/50 pointer-events-none'
+                size={16}
               />
               <select
-                className='select select-bordered w-full pl-10'
+                className='w-full h-10 pl-9 pr-8 rounded-lg bg-base-100 border border-base-content/15 text-sm text-neutral-content focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer'
                 value={year}
                 onChange={(e) => setYear(e.target.value)}
                 aria-label='Filter by year'
@@ -198,48 +170,49 @@ const ProjectsPage = () => {
             </div>
           </div>
 
-          {/* Results count and clear filters */}
-          <div className='flex items-center justify-between'>
-            <span className='text-sm text-neutral-content/70'>
-              {filteredProjects.length} {filteredProjects.length === 1 ? 'project' : 'projects'}{' '}
-              found
+          {/* Results Counter & Reset */}
+          <div className='flex items-center justify-between pt-3 mt-3 border-t border-base-content/10 text-xs text-base-content/70'>
+            <span>
+              Showing <strong className='text-neutral-content'>{filteredProjects.length}</strong>{' '}
+              {filteredProjects.length === 1 ? 'project' : 'projects'}
             </span>
             {hasActiveFilters && (
-              <button onClick={clearFilters} className='btn btn-ghost btn-sm gap-2'>
-                <IoCloseCircle size={18} />
-                Clear Filters
+              <button
+                onClick={clearFilters}
+                className='inline-flex items-center gap-1 text-primary hover:underline font-semibold'
+              >
+                <IoCloseCircleOutline size={14} />
+                <span>Reset filters</span>
               </button>
             )}
           </div>
         </div>
 
+        {/* Project Grid */}
         <div className='flex-1'>
-          <div className='grid gap-8 md:grid-cols-2 lg:grid-cols-3'>
-            {filteredProjects.length === 0 && (
-              <div className='col-span-full text-center py-12 min-h-[300px] flex flex-col items-center justify-center gap-4'>
-                <IoSearchSharp size={48} className='text-neutral-content/30' />
-                <div>
-                  <p className='text-lg font-semibold text-neutral-content/70 mb-2'>
-                    No projects found
-                  </p>
-                  <p className='text-sm text-neutral-content/50'>
-                    Try adjusting your filters or search term
-                  </p>
-                </div>
-                {hasActiveFilters && (
-                  <button onClick={clearFilters} className='btn btn-primary btn-sm mt-2'>
-                    Clear All Filters
-                  </button>
-                )}
-              </div>
-            )}
-            {filteredProjects.map((project) => (
-              <ProjectItem key={project.id} project={project} />
-            ))}
-          </div>
+          {filteredProjects.length === 0 ? (
+            <div className='card-clean p-12 text-center flex flex-col items-center justify-center gap-3 min-h-[260px]'>
+              <IoSearchOutline size={36} className='text-base-content/40' />
+              <h3 className='text-base font-bold text-neutral-content'>
+                No matching projects found
+              </h3>
+              <p className='text-xs text-base-content/70 max-w-sm'>
+                Try relaxing your search query or removing filter constraints.
+              </p>
+              {hasActiveFilters && (
+                <button onClick={clearFilters} className='btn-secondary-custom text-xs mt-2'>
+                  Clear filters
+                </button>
+              )}
+            </div>
+          ) : (
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+              {filteredProjects.map((project) => (
+                <ProjectItem key={project.id} project={project} />
+              ))}
+            </div>
+          )}
         </div>
-
-        <div className='flex-1' />
       </div>
     </RootLayout>
   )

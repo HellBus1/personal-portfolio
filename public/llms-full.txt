@@ -1,0 +1,62 @@
+# Syubban Fakhriya — Full Knowledge Bundle (llms-full.txt)
+
+## Biographical Overview
+Syubban Fakhriya is a Software Engineer based in Indonesia with 2+ years of production experience building high-performance systems and intuitive user interfaces. Currently working at PT. SMBC Indonesia, Syubban specializes in enterprise Java, Spring Boot, React, TypeScript, Kotlin, and Flutter.
+
+## Core Competencies & Tech Stack
+- **Backend**: Java 17/21, Spring Boot, Spring Data JPA, Spring Security, Hibernate, Microservices, RESTful APIs, PostgreSQL, MySQL.
+- **Frontend**: React 18, TypeScript, Tailwind CSS, DaisyUI, Vite, HTML5/CSS3.
+- **Mobile**: Android (Native Kotlin, Jetpack Compose, Room DB, Hilt, Coroutines, Flow), Flutter (Dart, Provider/Bloc).
+- **DevOps & Infrastructure**: Docker, Git, CI/CD, Cloudflare Pages, Nginx.
+
+## Projects & Case Studies
+
+### 1. VentNote (Android Application)
+- **URL**: https://mattrmost.com/projects/ventnote
+- **Play Store**: https://play.google.com/store/apps/details?id=com.digiventure.ventnote
+- **Tech Stack**: Kotlin, Android Studio, Room SQLite Database, MVVM Architecture, Coroutines, Flow, Hilt.
+- **Description**: An offline-first, privacy-focused note-taking application designed for emotional expression and fast text capture. Zero advertisements, no forced accounts, and local device storage.
+- **Metrics**: 5,000+ downloads on Google Play Store with a 3.4-star rating across 92+ reviews.
+
+### 2. VentFit (Mobile Application)
+- **URL**: https://mattrmost.com/projects/ventfit
+- **Play Store**: https://play.google.com/store/apps/details?id=com.digiventure.ventfit
+- **Tech Stack**: Flutter, Dart, Material Design.
+- **Description**: Health and fitness tracker featuring an interactive BMI Calculator and personal wellness statistics.
+
+### 3. InvestCount (Financial Web Utility)
+- **URL**: https://mattrmost.com/projects/investcount
+- **Live Demo**: https://investcount.mattrmost.com/
+- **Tech Stack**: React, TypeScript, Tailwind CSS, DaisyUI, Vite.
+- **Description**: A comprehensive financial calculator for estimating fixed deposit interest, net yield after tax deductions (PPh), and compounding wealth scenarios.
+
+### 4. Spring Boot Exploration (Engineering Repository)
+- **URL**: https://mattrmost.com/projects/spring-boot-exploration
+- **GitHub**: https://github.com/HellBus1/spring-playground
+- **Tech Stack**: Java, Spring Boot, Spring Data JPA, H2/PostgreSQL.
+- **Description**: A reference repository documenting enterprise architecture best practices, database transaction isolation, garbage collection tuning, and API design.
+
+### 5. React Tailwind Starter (Boilerplate Template)
+- **URL**: https://mattrmost.com/projects/react-tailwind-starter
+- **GitHub**: https://github.com/HellBus1/ts-react-tailwind-starter
+- **Tech Stack**: React, TypeScript, Vite, Tailwind CSS, DaisyUI.
+- **Description**: Developer starter template with pre-configured routing, linting, formatting, and responsive theme switcher.
+
+## Technical Publications & Articles
+Published on Medium (https://medium.com/@fakrii):
+1. **Transactional: What Happens When the Process Fails?**
+   - Focus: Deep dive into Spring transaction propagation, isolation levels, rollback triggers, and relational database integrity during execution failure.
+2. **Choosing a Garbage Collector in Spring Boot Effectively for Maximum Performance to Prevent Downtime**
+   - Focus: Comparative analysis of G1GC, ZGC, and ParallelGC in high-throughput JVM environments to prevent latency spikes and Stop-The-World pauses.
+3. **Boost Your Productivity with ChatGPT — The Ultimate Tool for Efficiency**
+   - Focus: Practical developer workflows, prompt structures, and automation techniques using LLMs for code refactoring and technical problem-solving.
+4. **React Native vs Flutter: Which Framework Reigns Supreme in Multiplatform Mobile Development?**
+   - Focus: Architecture, bridge overhead, render engine differences, and developer velocity trade-offs between Flutter and React Native.
+
+## Contact & Social Channels
+- Website: https://mattrmost.com
+- Email: hello@mattrmost.com
+- GitHub: https://github.com/HellBus1
+- LinkedIn: https://linkedin.com/in/syubban
+- Medium: https://medium.com/@fakrii
+- Instagram: https://instagram.com/mattr.most

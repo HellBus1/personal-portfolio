@@ -1,98 +1,45 @@
-import { useEffect, useState } from 'react'
-import { RouteName } from '@/constants/RouteName'
+import { useNavigate } from 'react-router-dom'
+import { IoArrowForward } from 'react-icons/io5'
 import articlesDataRaw from '../../../../data/articles.json'
 import { Article } from '@/model/article'
-import { Link, useNavigate } from 'react-router-dom'
-
-const getArticleCount = () => (window.innerWidth < 640 ? 2 : 3)
+import { RouteName } from '@/constants/RouteName'
+import ArticleItem from '@/pages/ArticlesPage/components/ArticleItem/ArticleItem'
 
 const ArticleSection = () => {
   const navigate = useNavigate()
-  const [articleCount, setArticleCount] = useState(getArticleCount())
 
-  useEffect(() => {
-    const handleResize = () => setArticleCount(getArticleCount())
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
-
-  const displayedArticles = (articlesDataRaw as Article[])
-    .filter((a) => a.featured)
-    .slice(0, articleCount)
+  const displayedArticles = (articlesDataRaw as Article[]).filter((a) => a.featured).slice(0, 3)
 
   return (
     <section
-      className='flex flex-col items-center px-8 md:px-12 lg:px-20 mt-16 mb-32'
+      className='w-full max-w-6xl mx-auto px-6 md:px-12 py-16 md:py-24 border-t border-base-content/10'
       id='articles-section'
     >
-      <div className='w-full max-w-6xl'>
-        <h2 className='text-3xl md:text-4xl font-bold text-neutral-content text-center'>
-          Featured <span className='text-primary'>Articles</span>
-        </h2>
-        <p className='text-base md:text-lg mt-4 text-center text-neutral-content/80'>
-          Some of my articles on software development, technology, and best practices.
-        </p>
-      </div>
-
-      <div className='w-full max-w-6xl mt-12'>
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
-          {displayedArticles.map((item, index) => (
-            <Link
-              to={item.path}
-              key={`${item.id}-${index}`}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='card card-compact w-full rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:ring-2 hover:ring-primary/50 bg-base-200 flex flex-col group'
-              style={{ minHeight: 380, height: '100%' }}
-            >
-              <figure className='h-48 relative overflow-hidden'>
-                <img
-                  alt={item.title}
-                  src={item.banner}
-                  className='rounded-t-lg w-full h-full object-cover transition-transform duration-300 group-hover:scale-110'
-                />
-                <span className='absolute top-3 right-3 badge badge-primary badge-sm'>
-                  Featured
-                </span>
-              </figure>
-              <div className='card-body flex flex-col justify-between flex-1 px-5 py-4'>
-                <div>
-                  <h3 className='text-lg font-semibold text-neutral-content line-clamp-2 mb-2'>
-                    {item.title}
-                  </h3>
-                  <p className='text-base text-neutral-content/80 line-clamp-2'>
-                    {item.shortDescription}
-                  </p>
-                </div>
-                <div>
-                  <div className='flex flex-col mt-4'>
-                    <div className='flex flex-wrap gap-2'>
-                      {item.tags?.slice(0, 3).map((tag) => (
-                        <span key={tag} className='badge badge-outline text-xs px-2 py-1'>
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <div className='mt-4'>
-                      {item.readTime && (
-                        <span className='text-xs text-neutral-content/60'>📖 {item.readTime}</span>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          ))}
+      {/* Section Header */}
+      <div className='flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10'>
+        <div>
+          <span className='text-xs font-semibold tracking-wider text-primary uppercase mb-2 block'>
+            Written Insights
+          </span>
+          <h2 className='text-3xl sm:text-4xl font-bold font-display text-neutral-content tracking-tight'>
+            Featured Articles
+          </h2>
         </div>
+
+        <button
+          onClick={() => navigate(RouteName.ARTICLES)}
+          className='inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary-focus transition-colors group'
+        >
+          <span>Read all {articlesDataRaw.length} articles</span>
+          <IoArrowForward size={16} className='group-hover:translate-x-1 transition-transform' />
+        </button>
       </div>
 
-      <div className='mt-12'>
-        <button
-          className='btn btn-outline text-neutral-content px-8 text-base md:text-lg capitalize hover:scale-105 transition-transform'
-          onClick={() => navigate(RouteName.ARTICLES)}
-        >
-          {'See more articles'}
-        </button>
+      {/* Articles List */}
+      <div className='flex flex-col gap-4'>
+        {displayedArticles.map((item) => (
+          <ArticleItem key={item.id} article={item} />
+        ))}
       </div>
     </section>
   )
