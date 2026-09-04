@@ -9,7 +9,7 @@
     "build:ssr": "vite build --ssr src/entry-server.tsx --outDir dist-ssr",
     "build:prerender": "node scripts/prerender.js",
     "build": "npm run build:client && npm run build:ssr && npm run build:prerender",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "format": "prettier --write 'src/**/*.{ts,tsx,css}' --config ./.prettierrc.json",
     "lint:fix": "eslint --fix 'src/**/*.{ts,tsx}'",
@@ -53,7 +53,7 @@
     "postcss": "^8.5.28",
     "prettier": "3.3.3",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5.2.2",
+    "typescript": "^5.7.3",
     "vite": "^8.2.2"
   }
 }
