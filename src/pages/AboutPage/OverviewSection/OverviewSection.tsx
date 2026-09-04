@@ -1,48 +1,56 @@
-import { IoDownload } from 'react-icons/io5'
+import { IoDownloadOutline } from 'react-icons/io5'
 
 const OverviewSection = () => {
   return (
-    <section className='flex flex-col-reverse md:flex-row items-center md:items-start gap-8 mb-16'>
-      <div className='space-y-6 md:w-2/3 text-center md:text-left'>
-        <h1 className='text-3xl md:text-4xl font-bold text-neutral-content'>
-          Hi, I'm <span className='text-primary'>Syubban Fakhriya</span>
+    <section className='flex flex-col-reverse md:flex-row items-center md:items-start justify-between gap-10'>
+      <div className='flex-1 text-center md:text-left'>
+        <span className='text-xs font-semibold tracking-wider text-primary uppercase mb-2 block'>
+          About Me
+        </span>
+        <h1 className='text-3xl sm:text-4xl md:text-5xl font-bold font-display text-neutral-content tracking-tight mb-4'>
+          Hi, I&apos;m <span className='text-primary'>Syubban Fakhriya</span>
         </h1>
-        <div className='prose prose-base md:prose-lg dark:prose-invert'>
+
+        <div className='text-sm sm:text-base text-base-content/90 space-y-3 leading-relaxed mb-6'>
           <p>
-            I create scalable solutions, such as company profiles and custom ERP systems, that
-            automate processes, produce leads, and increase business growth.
+            I am a Full-Stack Software Engineer currently building reliable financial payment
+            platforms at PT. SMBC Indonesia. My core focus is architecting scalable backend
+            microservices and responsive, accessible client interfaces.
           </p>
-          <br />
           <p>
-            I believe in building tools that serve real human needs, combining technical expertise
-            with empathy to create meaningful experiences.
+            I believe that software should be purposeful, readable, and built to stand the test of
+            time. Outside of work, I write technical articles and build open-source tools to solve
+            daily productivity challenges.
           </p>
         </div>
 
-        {/* Resume Download Button */}
-        <div className='flex flex-col sm:flex-row gap-4 items-center md:items-start'>
+        {/* Resume Download */}
+        <div className='flex items-center justify-center md:justify-start'>
           <a
             href='/resume.pdf'
             download='Syubban_Fakhriya_Resume.pdf'
-            className='btn btn-primary gap-2 w-full sm:w-auto'
+            className='btn-primary-custom'
             target='_blank'
             rel='noopener noreferrer'
           >
-            <IoDownload size={20} />
-            Download Resume
+            <IoDownloadOutline size={18} />
+            <span>Download Resume</span>
           </a>
         </div>
       </div>
-      <div className='md:w-1/3 flex justify-center'>
+
+      {/* Avatar */}
+      <div className='relative flex-shrink-0'>
         <div className='relative group'>
-          <div className='w-[180px] md:w-[200px] h-[180px] md:h-[200px] rounded-full overflow-hidden ring-2 ring-primary/20 transition-all duration-300 group-hover:ring-primary/40'>
+          <div className='absolute -inset-1 rounded-full bg-gradient-to-tr from-primary/30 to-secondary/30 blur-md opacity-50 group-hover:opacity-100 transition-opacity duration-300' />
+          <div className='relative w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden border-2 border-base-content/15 bg-base-200 p-1'>
             <img
               src='/avatar.jpg'
               alt='Syubban Fakhriya'
-              className='w-full h-full object-cover transition-transform duration-300 group-hover:scale-105'
+              className='w-full h-full object-cover rounded-full transition-transform duration-300 group-hover:scale-105'
+              loading='eager'
             />
           </div>
-          <div className='absolute inset-0 rounded-full bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
         </div>
       </div>
     </section>

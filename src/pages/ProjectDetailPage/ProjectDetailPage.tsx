@@ -1,42 +1,38 @@
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import RootLayout from '@/components/RootLayout/RootLayout'
-import { IoArrowBack, IoShareOutline } from 'react-icons/io5'
+import { IoArrowBackOutline, IoShareOutline } from 'react-icons/io5'
 import projectsData from '@/data/projects.json'
-import { Project } from '@/model/project'
+import { getStackIcon } from '@/theme'
+
+// Eagerly import all project MDX modules so they are available synchronously during SSR
+const projectModules = import.meta.glob<{ default: React.ComponentType }>(
+  '../../content/projects/*.mdx',
+  { eager: true }
+)
 
 const ProjectDetailPage = () => {
   const { projectId } = useParams<{ projectId: string }>()
   const navigate = useNavigate()
-  const [MDXContent, setMDXContent] = useState<React.ComponentType | null>(null)
-  const [project, setProject] = useState<Project | null>(null)
+
+  const project = projectsData.find((p) => p.id === projectId) || null
 
   useEffect(() => {
-    const loadProject = async () => {
-      const foundProject = projectsData.find((p) => p.id === projectId)
-      if (!foundProject) {
-        navigate('/projects')
-        return
-      }
-      setProject(foundProject)
-
-      // Dynamically import MDX content
-      try {
-        const mdxModule = await import(`../../content/projects/${projectId}.mdx`)
-        setMDXContent(() => mdxModule.default)
-      } catch (error) {
-        console.error('Failed to load project content:', error)
-      }
+    if (!project) {
+      navigate('/projects')
     }
+  }, [project, navigate])
 
-    loadProject()
-  }, [projectId, navigate])
+  const MDXContent = projectId
+    ? projectModules[`../../content/projects/${projectId}.mdx`]?.default || null
+    : null
 
   if (!project) {
     return (
       <RootLayout>
-        <div className='container max-w-4xl mx-auto px-8 md:px-12 lg:px-20 py-24'>
-          <div className='text-center'>Loading...</div>
+        <div className='w-full max-w-4xl mx-auto px-6 md:px-12 py-32 text-center'>
+          <div className='inline-block w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin mb-3' />
+          <p className='text-xs text-base-content/70'>Loading project narrative...</p>
         </div>
       </RootLayout>
     )
@@ -44,53 +40,61 @@ const ProjectDetailPage = () => {
 
   return (
     <RootLayout>
-      <div className='container max-w-4xl mx-auto px-8 md:px-12 lg:px-20 pb-16 pt-24'>
-        {/* Breadcrumbs */}
-        <div className='text-sm mb-8'>
-          <div className='breadcrumbs'>
-            <ul>
-              <li>
-                <Link to='/' className='link link-hover'>
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to='/projects' className='link link-hover'>
-                  Projects
-                </Link>
-              </li>
-              <li>
-                <span className='font-semibold'>{project.name}</span>
-              </li>
-            </ul>
-          </div>
+      <div className='w-full max-w-4xl mx-auto px-6 md:px-12 pt-28 pb-20'>
+        {/* Breadcrumbs & Navigation */}
+        <div className='flex items-center justify-between mb-8'>
+          <nav className='flex items-center gap-2 text-xs text-base-content/60'>
+            <Link to='/' className='hover:text-primary transition-colors'>
+              Home
+            </Link>
+            <span>/</span>
+            <Link to='/projects' className='hover:text-primary transition-colors'>
+              Projects
+            </Link>
+            <span>/</span>
+            <span className='text-neutral-content font-semibold truncate max-w-[180px]'>
+              {project.name}
+            </span>
+          </nav>
+
+          <button
+            onClick={() => navigate('/projects')}
+            className='inline-flex items-center gap-1.5 text-xs text-base-content/70 hover:text-primary transition-colors font-medium'
+          >
+            <IoArrowBackOutline size={15} />
+            <span>Back to archive</span>
+          </button>
         </div>
 
-        {/* Back Button */}
-        <button onClick={() => navigate('/projects')} className='btn btn-ghost btn-sm mb-6'>
-          <IoArrowBack size={20} />
-          Back to Projects
-        </button>
-
         {/* Hero Section */}
-        <div className='mb-8'>
-          <div className='flex items-center gap-3 mb-4'>
-            <h1 className='text-4xl font-bold'>{project.name}</h1>
-            {project.year && <span className='badge badge-primary'>{project.year}</span>}
+        <div className='mb-10'>
+          <div className='flex flex-wrap items-center gap-3 mb-3'>
+            <h1 className='text-3xl sm:text-4xl md:text-5xl font-bold font-display text-neutral-content tracking-tight'>
+              {project.name}
+            </h1>
+            {project.year && (
+              <span className='px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20'>
+                {project.year}
+              </span>
+            )}
           </div>
-          <p className='text-xl text-neutral-content/80 mb-6'>{project.shortDescription}</p>
 
-          {/* Tech Stack */}
-          <div className='flex flex-wrap gap-2 mb-6'>
+          <p className='text-base sm:text-lg text-base-content/90 mb-6 leading-relaxed'>
+            {project.shortDescription}
+          </p>
+
+          {/* Tech Stack Pills */}
+          <div className='flex flex-wrap gap-2 mb-8'>
             {project.stacks.map((tech) => (
-              <span key={tech} className='badge badge-outline'>
-                {tech}
+              <span key={tech} className='tag-pill'>
+                <span className='text-primary'>{getStackIcon(tech, 14)}</span>
+                <span>{tech}</span>
               </span>
             ))}
           </div>
 
           {/* Banner Image */}
-          <figure className='rounded-lg overflow-hidden mb-6'>
+          <figure className='rounded-xl overflow-hidden border border-base-content/10 mb-8 bg-base-300'>
             <img
               src={project.banner}
               alt={project.name}
@@ -99,29 +103,42 @@ const ProjectDetailPage = () => {
             />
           </figure>
 
-          {/* Action Buttons */}
-          <div className='flex gap-4'>
-            <a
-              href={project.project_link}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='btn btn-primary'
-            >
-              <IoShareOutline />
-              Visit Project
-            </a>
+          {/* Action Links */}
+          <div className='flex flex-wrap items-center gap-3'>
+            {project.project_link && (
+              <a
+                href={project.project_link}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='btn-primary-custom'
+              >
+                <IoShareOutline size={16} />
+                <span>Source Repository</span>
+              </a>
+            )}
+
+            {project.path && project.path !== project.project_link && (
+              <a
+                href={project.path}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='btn-secondary-custom'
+              >
+                <IoShareOutline size={16} />
+                <span>Live Project / Store</span>
+              </a>
+            )}
           </div>
         </div>
 
-        {/* MDX Content */}
-        <div className='prose prose-lg max-w-none'>
+        {/* MDX Article / Story Content */}
+        <div className='border-t border-base-content/10 pt-10 prose'>
           {MDXContent ? (
             <MDXContent />
           ) : (
-            <div className='text-center py-12'>
-              <p className='text-neutral-content/60'>
-                Detailed project story coming soon. Check out the live project using the button
-                above!
+            <div className='card-clean p-8 text-center'>
+              <p className='text-xs sm:text-sm text-base-content/70'>
+                Detailed case study coming soon. Explore the live build using the links above.
               </p>
             </div>
           )}

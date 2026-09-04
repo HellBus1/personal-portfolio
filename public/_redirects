@@ -1,0 +1,7 @@
+# Legacy and Mismatched URL 301 Redirects
+/transparency                     /about                           301
+/projects/springboot-exploration  /projects/spring-boot-exploration 301
+/projects/react-template          /projects/react-tailwind-starter  301
+
+# SPA fallback
+/*                                /index.html                      200

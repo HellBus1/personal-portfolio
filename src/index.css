@@ -6,6 +6,14 @@
   /* Smooth scroll behavior */
   html {
     scroll-behavior: smooth;
+    font-family:
+      'Inter',
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      Roboto,
+      sans-serif;
   }
 
   /* inter var - latin */
@@ -13,10 +21,32 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 100 900;
-    font-display: block;
+    font-display: swap;
     src: url('/fonts/inter-var-latin.woff2') format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
       U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  body {
+    @apply bg-base-100 text-base-content antialiased selection:bg-primary/20 selection:text-primary;
+    letter-spacing: -0.011em;
+  }
+
+  /* Heading hierarchy with characterful display font option */
+  h1,
+  h2,
+  h3 {
+    @apply tracking-tight text-neutral-content font-bold;
+  }
+
+  .font-display {
+    font-family:
+      'Plus Jakarta Sans',
+      'Inter',
+      system-ui,
+      -apple-system,
+      sans-serif;
+    letter-spacing: -0.025em;
   }
 
   .cursor-newtab {
@@ -25,77 +55,77 @@
       pointer;
   }
 
-  /* #region  /**=========== Typography =========== */
-  .h0 {
-    @apply text-3xl font-bold md:text-5xl;
-  }
-
-  h1,
-  .h1 {
-    @apply text-2xl font-bold md:text-4xl;
-  }
-
-  h2,
-  .h2 {
-    @apply text-xl font-bold md:text-3xl;
-  }
-
-  h3,
-  .h3 {
-    @apply text-lg font-bold md:text-2xl;
-  }
-
-  h4,
-  .h4 {
-    @apply text-base font-bold md:text-lg;
-  }
-
-  body,
-  .p {
-    @apply text-sm md:text-base;
-  }
-
-  /* #endregion  /**======== Typography =========== */
-
+  /* Layout container */
   .layout {
-    /* 1100px */
-    max-width: 68.75rem;
+    max-width: 68rem;
     @apply mx-auto w-11/12;
-  }
-
-  .bg-dark a.custom-link {
-    @apply border-gray-200 hover:border-gray-200/0;
   }
 
   /* Class to adjust with sticky footer */
   .min-h-main {
     @apply min-h-[calc(100vh-56px)];
   }
+}
 
-  /* Prose styling for MDX content */
+@layer components {
+  /* Glassmorphism Navigation */
+  .nav-glass {
+    @apply backdrop-blur-md bg-base-100/80 border-b border-base-content/10 transition-colors duration-200;
+  }
+
+  /* Card Surface System - Replaces generic aggressive scale-105 with subtle illumination */
+  .card-clean {
+    @apply bg-base-200 border border-base-content/10 rounded-xl transition-all duration-200 ease-out;
+  }
+
+  .card-clean:hover {
+    @apply border-primary/40 bg-base-200/90 shadow-lg shadow-primary/5;
+  }
+
+  /* Interactive Tag Pill */
+  .tag-pill {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium bg-base-300 text-neutral-content border border-base-content/10 transition-colors duration-150;
+  }
+
+  .tag-pill:hover {
+    @apply border-primary/30 text-primary;
+  }
+
+  /* Button refinements */
+  .btn-primary-custom {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-primary text-primary-content font-medium text-sm transition-all duration-150 hover:opacity-90 active:scale-[0.98] shadow-sm shadow-primary/20;
+  }
+
+  .btn-secondary-custom {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-base-200 text-neutral-content border border-base-content/15 font-medium text-sm transition-all duration-150 hover:bg-base-300 hover:border-base-content/25 active:scale-[0.98];
+  }
+}
+
+/* Prose styling for MDX / Article content */
+@layer utilities {
   .prose {
-    @apply text-neutral-content;
+    @apply text-base-content max-w-none;
   }
 
   .prose h1 {
-    @apply text-3xl font-bold mt-8 mb-4;
+    @apply text-3xl md:text-4xl font-bold font-display text-neutral-content mt-8 mb-4;
   }
 
   .prose h2 {
-    @apply text-2xl font-bold mt-6 mb-3;
+    @apply text-2xl font-bold font-display text-neutral-content mt-8 mb-3 border-b border-base-content/10 pb-2;
   }
 
   .prose h3 {
-    @apply text-xl font-semibold mt-4 mb-2;
+    @apply text-xl font-semibold text-neutral-content mt-6 mb-2;
   }
 
   .prose p {
-    @apply mb-4 leading-relaxed;
+    @apply mb-4 leading-relaxed text-base-content/90;
   }
 
   .prose ul,
   .prose ol {
-    @apply mb-4 ml-6;
+    @apply mb-4 ml-6 space-y-1.5;
     list-style-position: outside;
   }
 
@@ -107,87 +137,47 @@
     list-style-type: decimal;
   }
 
-  .prose li {
-    @apply mb-2;
-    display: list-item;
-  }
-
   .prose code {
-    @apply bg-base-200 px-1 py-0.5 rounded text-sm;
+    @apply bg-base-300 text-primary px-1.5 py-0.5 rounded text-xs font-mono border border-base-content/10;
   }
 
   .prose pre {
-    @apply bg-base-300 p-4 rounded-lg overflow-x-auto mb-4;
+    @apply bg-base-200 border border-base-content/10 p-4 rounded-xl overflow-x-auto mb-4 font-mono text-sm;
   }
 
   .prose pre code {
-    @apply bg-transparent p-0;
+    @apply bg-transparent p-0 border-none text-neutral-content;
   }
 
   .prose blockquote {
-    @apply border-l-4 border-primary pl-4 italic my-4;
+    @apply border-l-2 border-primary pl-4 italic my-4 text-base-content/80 bg-base-200/50 py-2 rounded-r-lg;
   }
 
   .prose a {
-    @apply text-primary hover:underline;
+    @apply text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary transition-colors;
   }
 
   .prose img {
-    @apply rounded-lg my-4;
+    @apply rounded-xl my-6 border border-base-content/10;
   }
 
   .prose hr {
-    @apply my-8 border-base-300;
-  }
-
-  .prose strong {
-    @apply font-semibold;
-  }
-
-  .prose em {
-    @apply italic;
+    @apply my-8 border-base-content/10;
   }
 
   .prose table {
-    @apply w-full my-6;
-    display: table;
-    border-spacing: 0;
-    border-collapse: separate;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    background-color: transparent;
-  }
-
-  .prose thead {
-    display: table-header-group;
-  }
-
-  .prose tbody {
-    display: table-row-group;
-  }
-
-  .prose tr {
-    display: table-row;
+    @apply w-full my-6 text-sm border-collapse rounded-lg overflow-hidden border border-base-content/10;
   }
 
   .prose th {
-    @apply font-semibold text-left p-4 bg-base-300 border-b-2 border-base-100;
-    display: table-cell;
-    vertical-align: top;
-    color: inherit;
+    @apply font-semibold text-left p-3.5 bg-base-300 text-neutral-content border-b border-base-content/10;
   }
 
   .prose td {
-    @apply p-4 bg-base-200 border-b border-base-300;
-    display: table-cell;
-    vertical-align: top;
-  }
-
-  .prose tbody tr:last-child td {
-    border-bottom: none;
+    @apply p-3.5 bg-base-200 border-b border-base-content/10 text-base-content/90;
   }
 
   .prose tr:hover td {
-    @apply bg-base-300/50;
+    @apply bg-base-300/40;
   }
 }

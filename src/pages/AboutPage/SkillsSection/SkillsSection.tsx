@@ -13,63 +13,69 @@ import { FaDatabase, FaMobile, FaJava, FaNode } from 'react-icons/fa'
 const SkillsSection = () => {
   const skillCategories = [
     {
+      title: 'Backend Engineering',
+      icon: <FaJava className='text-primary' size={20} />,
+      skills: [
+        { name: 'Java', icon: <FaJava size={16} /> },
+        { name: 'Spring Boot', icon: <SiSpring size={16} /> },
+        { name: 'Node.js', icon: <FaNode size={16} /> },
+        { name: 'SQL & Databases', icon: <FaDatabase size={16} /> }
+      ]
+    },
+    {
       title: 'Frontend Development',
-      icon: <SiReact className='text-primary' size={24} />,
+      icon: <SiReact className='text-primary' size={20} />,
       skills: [
-        { name: 'React', icon: <SiReact size={20} /> },
-        { name: 'TypeScript', icon: <SiTypescript size={20} /> }
+        { name: 'React', icon: <SiReact size={16} /> },
+        { name: 'TypeScript', icon: <SiTypescript size={16} /> }
       ]
     },
     {
-      title: 'Backend Development',
-      icon: <FaJava className='text-primary' size={24} />,
+      title: 'Mobile Applications',
+      icon: <FaMobile className='text-primary' size={20} />,
       skills: [
-        { name: 'Node.js', icon: <FaNode size={20} /> },
-        { name: 'Spring Boot', icon: <SiSpring size={20} /> },
-        { name: 'SQL', icon: <FaDatabase size={20} /> }
+        { name: 'Flutter', icon: <SiFlutter size={16} /> },
+        { name: 'Kotlin', icon: <SiKotlin size={16} /> }
       ]
     },
     {
-      title: 'Mobile Development',
-      icon: <FaMobile className='text-primary' size={24} />,
+      title: 'DevOps & Tooling',
+      icon: <SiGit className='text-primary' size={20} />,
       skills: [
-        { name: 'Flutter', icon: <SiFlutter size={20} /> },
-        { name: 'Kotlin', icon: <SiKotlin size={20} /> }
-      ]
-    },
-    {
-      title: 'Tools & Others',
-      icon: <SiGit className='text-primary' size={24} />,
-      skills: [
-        { name: 'Git', icon: <SiGit size={20} /> },
-        { name: 'Docker', icon: <SiDocker size={20} /> },
-        { name: 'Figma', icon: <SiFigma size={20} /> }
+        { name: 'Git', icon: <SiGit size={16} /> },
+        { name: 'Docker', icon: <SiDocker size={16} /> },
+        { name: 'Figma', icon: <SiFigma size={16} /> }
       ]
     }
   ]
 
   return (
-    <section className='space-y-8 mb-16'>
-      <h2 className='text-2xl md:text-3xl font-bold text-neutral-content'>Skills & Technologies</h2>
-      <div className='grid gap-6 md:grid-cols-2'>
+    <section className='pt-8 border-t border-base-content/10'>
+      <div className='mb-8'>
+        <span className='text-xs font-semibold tracking-wider text-primary uppercase mb-1 block'>
+          Capabilities
+        </span>
+        <h2 className='text-2xl sm:text-3xl font-bold font-display text-neutral-content tracking-tight'>
+          Skills &amp; Technologies
+        </h2>
+      </div>
+
+      <div className='grid gap-4 sm:grid-cols-2'>
         {skillCategories.map((category, index) => (
-          <div
-            key={index}
-            className='group p-6 bg-base-200 rounded-lg transition-all hover:bg-base-300 hover:shadow-lg'
-          >
-            <div className='flex items-center gap-3 mb-4'>
-              {category.icon}
-              <h3 className='font-semibold text-lg'>{category.title}</h3>
+          <div key={index} className='card-clean p-5 flex flex-col justify-between'>
+            <div className='flex items-center gap-2.5 mb-4'>
+              <span className='p-2 rounded-lg bg-base-300 border border-base-content/10'>
+                {category.icon}
+              </span>
+              <h3 className='font-bold text-base text-neutral-content'>{category.title}</h3>
             </div>
-            <div className='flex flex-wrap gap-3'>
+
+            <div className='flex flex-wrap gap-2'>
               {category.skills.map((skill, idx) => (
-                <div
-                  key={idx}
-                  className='flex items-center gap-2 px-3 py-2 bg-base-100 rounded-md hover:bg-primary hover:text-primary-content transition-all duration-200'
-                >
-                  <span className='text-primary group-hover:text-current'>{skill.icon}</span>
-                  <span className='text-sm font-medium'>{skill.name}</span>
-                </div>
+                <span key={idx} className='tag-pill'>
+                  <span className='text-primary'>{skill.icon}</span>
+                  <span>{skill.name}</span>
+                </span>
               ))}
             </div>
           </div>
